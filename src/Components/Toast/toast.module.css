@@ -1,0 +1,47 @@
+.toast {
+  position: fixed;
+  top: 0.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 16px;
+  border-radius: 4px;
+  color: #fff;
+  z-index: 9999;
+  animation: fadeIn 0.5s, fadeOut 0.5s 2.5s;
+  font-weight: 500;
+  font-family: 'Poppins';
+}
+
+.toast.success {
+  background-color: #4caf50;
+}
+
+.toast.error {
+  background-color: #f44336;
+}
+
+.toast.warning {
+  background-color: #ff9800;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateX(-50%) translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+  }
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateX(-50%) translateY(-20px);
+  }
+}

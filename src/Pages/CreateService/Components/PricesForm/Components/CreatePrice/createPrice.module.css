@@ -1,0 +1,90 @@
+.content {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 13;
+  background: rgba(0, 0, 0, 0.3);
+  display: grid;
+  place-items: center;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.content.open {
+  opacity: 1;
+  visibility: visible;
+}
+
+.popUp {
+  max-width: 32rem;
+  max-height: 30rem;
+  width: 100%;
+  height: 100%;
+  border-radius: 20px;
+  background: var(--fondo-secundario);
+  display: flex;
+  flex-direction: column;
+  padding-block: 0.5rem;
+  transform: translateY(10%);
+  opacity: 0;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.content.open .popUp {
+  transform: translateY(0%);
+  opacity: 1;
+}
+
+.popUp > div {
+  width: 100%;
+  padding-inline: 4%;
+}
+
+/* Header */
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  min-height: 4rem;
+}
+
+.headerContainer {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.headerContainer > h2 {
+  font: normal 500 19px/21px 'Poppins';
+  color: var(--texto-secundario);
+}
+
+/* Body */
+
+.body {
+  width: 100%;
+  height: 100%;
+  gap: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* Footer */
+
+.footer {
+  min-height: 4rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5rem;
+}
+
+.footer > button:nth-child(1) {
+  color: var(--error);
+}

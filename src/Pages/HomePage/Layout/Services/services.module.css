@@ -1,0 +1,78 @@
+.element {
+  height: 100%;
+}
+
+.section {
+  position: relative;
+  display: grid;
+  place-items: center;
+  background-image: url('../../../../Assets/Examples/Alfombras/aspirandoAlfombraHumo.jpg');
+  background-position: bottom;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.article {
+  padding-inline: 10%;
+  padding-top: 10rem;
+  width: 100%;
+  height: 100%;
+  background: #0020694e;
+  backdrop-filter: brightness(60%);
+}
+
+.containerData {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 2rem;
+  transition: ease 0.3s;
+}
+
+.containerData.visible {
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(0);
+}
+
+.containerData.hidden {
+  opacity: 0;
+  visibility: hidden;
+  transform: translateX(-50%);
+}
+
+.shape {
+  max-width: 300px;
+  width: 100%;
+  height: 1px;
+  border-radius: 10px;
+  background: var(--color-primario);
+}
+
+.title {
+  color: var(--fondo-principal);
+  letter-spacing: 1.28px;
+  font-weight: bolder;
+  font-size: 40px;
+}
+
+.container {
+  width: 100%;
+  height: 100%;
+  max-height: 30rem;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.pagination {
+  display: flex;
+  gap: 1rem;
+}
+
+.pagination > span {
+  color: var(--fondo-principal);
+}

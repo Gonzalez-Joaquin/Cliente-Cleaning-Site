@@ -1,0 +1,52 @@
+.container {
+  width: 100%;
+  min-width: 250px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.textareaContaiener {
+  height: 100%;
+}
+
+.label {
+  cursor: pointer;
+}
+
+.label {
+  color: var(--borde-medio);
+}
+
+.input {
+  width: 100%;
+  padding: 1em 1.2em;
+  font-weight: bold;
+  border-radius: 4px;
+  outline: 0;
+  background-color: transparent;
+  border: 0.2rem solid rgba(0, 0, 0, 0.15);
+  border-color: rgba(255, 255, 255, 0.3);
+  color: #fff;
+  transition: ease 0.2s;
+}
+
+.textarea {
+  width: 100%;
+  height: 100%;
+  padding: 1em 1.2em;
+  font-weight: bold;
+  border-radius: 4px;
+  outline: 0;
+  background-color: transparent;
+  border: 0.2rem solid rgba(0, 0, 0, 0.15);
+  border-color: rgba(255, 255, 255, 0.3);
+  color: #fff;
+  transition: ease 0.2s;
+  resize: none;
+}
+
+.input:is(:hover, :active, :focus-visible, :focus),
+.textarea:is(:hover, :active, :focus-visible, :focus) {
+  border-color: var(--borde-medio);
+}

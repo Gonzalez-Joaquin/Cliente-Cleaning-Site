@@ -1,0 +1,196 @@
+* {
+  user-select: none;
+  padding: 0px;
+  margin: 0px;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+* {
+  scroll-behavior: smooth;
+}
+
+body {
+  width: 100%;
+  height: 100vh;
+  background: var(--bg-primary);
+}
+
+#root {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+section {
+  width: 100%;
+}
+
+h1 {
+  font: normal 700 2.5rem / normal 'Poppins';
+  color: var(--color-primario);
+}
+
+h2 {
+  font: normal 600 2rem / normal 'Poppins';
+  color: var(--color-secundario);
+}
+
+h3 {
+  font: normal 500 1.75rem / normal 'Poppins';
+  color: var(--texto-principal);
+}
+
+h4 {
+  font: normal 400 1.5rem / normal 'Poppins';
+  color: var(--texto-secundario);
+}
+
+p {
+  font: normal 400 1rem / normal 'Poppins';
+  color: var(--texto-principal);
+}
+
+span {
+  font: normal 500 1.25rem / normal 'Poppins';
+  color: var(--texto-secundario);
+}
+
+label {
+  font: normal 500 1.25rem / normal 'Poppins';
+  color: var(--texto-secundario);
+}
+
+input,
+textarea {
+  font: normal 600 1rem / normal 'Poppins';
+  color: var(--borde-medio);
+}
+
+:root {
+  --color-primario: #ffc30d;
+  --color-secundario: #ffd547;
+  --fondo-principal: #ffffff;
+  --fondo-secundario: #fafafa;
+  --fondo-terciario: #f5f5f5;
+  --texto-principal: #3e3e47;
+  --texto-secundario: #41444b;
+  --texto-claro: #52575d;
+  --borde-claro: #e4e4e4;
+  --borde-medio: #c4c7ce;
+  --borde-oscuro: #dfe0df;
+  --fondo-seccion: #eaeaea;
+  --detalle: #e5f1f6;
+  --error: #ed254e;
+  --exito: #00ddba;
+  --accion-secundaria: #b0bec5; 
+  --enlace: #6c65ff;
+}
+
+*::-webkit-scrollbar {
+  width: 5px;
+  -webkit-appearance: none;
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: #7979799e;
+  border-radius: 24px;
+  border: 0px solid #f1f2f3;
+}
+
+@media (max-width: 1200px) {
+  h1 {
+    font-size: 2.25rem;
+  }
+
+  h2 {
+    font-size: 1.875rem;
+  }
+
+  h3 {
+    font-size: 1.625rem;
+  }
+
+  h4 {
+    font-size: 1.375rem;
+  }
+}
+
+@media (max-width: 992px) {
+  h1 {
+    font-size: 2rem;
+  }
+
+  h2 {
+    font-size: 1.75rem;
+  }
+
+  h3 {
+    font-size: 1.5rem;
+  }
+
+  h4 {
+    font-size: 1.25rem;
+  }
+}
+
+@media (max-width: 768px) {
+  h1 {
+    font-size: 1.75rem;
+  }
+
+  h2 {
+    font-size: 1.5rem;
+  }
+
+  h3 {
+    font-size: 1.25rem;
+  }
+
+  h4 {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 576px) {
+  h1 {
+    font-size: 1.5rem;
+  }
+
+  h2 {
+    font-size: 1.25rem;
+  }
+
+  h3 {
+    font-size: 1rem;
+  }
+
+  h4 {
+    font-size: 0.875rem;
+  }
+}
+/* Autofill styles */
+input:-webkit-autofill,
+textarea:-webkit-autofill {
+  -webkit-box-shadow: 0 0 0 30px #222222 inset !important; /* Assuming your background color is dark #222222 */
+  -webkit-text-fill-color: #f1f2f3 !important;
+  border: 0.2rem solid rgba(0, 0, 0, 0.15) !important;
+}
+
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active,
+textarea:-webkit-autofill:hover,
+textarea:-webkit-autofill:focus,
+textarea:-webkit-autofill:active {
+  -webkit-box-shadow: 0 0 0 30px #222222 inset !important;
+  -webkit-text-fill-color: #f1f2f3 !important;
+  border: 0.2rem solid rgba(0, 0, 0, 0.15) !important;
+}
+
+section{
+  width: 100%;
+  height: 100%;
+}
+

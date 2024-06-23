@@ -1,0 +1,133 @@
+.element {
+  height: 100%;
+}
+
+.section {
+  height: 100%;
+  background: url('../../../../Assets/Backgrounds/bg-primary.jpg');
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  overflow: hidden;
+  background-attachment: fixed;
+}
+
+.article {
+  margin: auto;
+  width: 100%;
+  height: 100%;
+  padding: 0px 10%;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  flex-direction: column;
+  gap: 1.2rem;
+  backdrop-filter: brightness(60%);
+}
+
+.article > h1 {
+  color: var(--fondo-seccion);
+  font-weight: bolder;
+  letter-spacing: 2.25px;
+  font-size: 4rem;
+  text-transform: uppercase;
+}
+
+.article > p {
+  color: var(--fondo-seccion);
+  font-size: 1.5rem;
+  letter-spacing: 1.28px;
+  max-width: 60ch;
+  font-weight: 400;
+}
+
+.article > button {
+  font-size: 1.25rem;
+  color: var(--detalle);
+  padding-inline: 0;
+  z-index: 10;
+}
+
+.article > button:hover {
+  background: transparent;
+  color: var(--borde-oscuro);
+}
+
+.downContainer {
+  width: 100%;
+  bottom: 5rem;
+  position: absolute;
+  z-index: 10;
+}
+
+.downContainer > button {
+  color: var(--borde-claro);
+  margin: auto;
+}
+
+.wrapper {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  right: 1rem;
+  bottom: 15vh;
+  z-index: 10;
+}
+
+.wrapper .icon {
+  position: relative;
+  background: #161616cd;
+  border-radius: 10px;
+  margin: 6px;
+  width: 40px;
+  height: 40px;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.wrapper .tooltip {
+  position: absolute;
+  left: -80px;
+  top: 5px;
+  font-size: 14px;
+  color: var(--detalle);
+  background: #161616cd;
+  padding: 5px 8px;
+  border-radius: 5px;
+  box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.wrapper .tooltip::before {
+  position: absolute;
+  content: '';
+  rotate: 0deg;
+  height: 8px;
+  width: 8px;
+  background: #161616db;
+  bottom: 10px;
+  left: 100%;
+  transform: translate(-50%) rotate(45deg);
+  transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.wrapper .icon:hover .tooltip {
+  top: 0;
+  left: -100px;
+  top: 5px;
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+
+.icon i {
+  position: relative;
+  color: var(--borde-claro);
+  display: flex;
+  line-height: 0 !important;
+  font-size: 20px;
+}

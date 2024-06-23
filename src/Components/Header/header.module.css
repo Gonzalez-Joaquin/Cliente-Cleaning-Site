@@ -1,0 +1,157 @@
+.header {
+  position: fixed;
+  width: 100%;
+  height: 4%;
+  padding-inline: 10% 3%;
+  padding-block: 0.5rem;
+  background: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  z-index: 51;
+  box-shadow: unset;
+  transition: ease 0.2s;
+}
+
+.header * {
+  transition: ease 0.2s;
+}
+
+.hidden {
+  display: none;
+  visibility: hidden;
+  opacity: 0;
+}
+
+.nav {
+  width: fit-content;
+  height: 100%;
+  display: grid;
+  place-items: center;
+}
+
+.ul {
+  display: flex;
+  gap: 0.5rem;
+  list-style: none;
+}
+
+.link,
+.active {
+  text-decoration: none;
+  color: var(--fondo-seccion);
+  padding: 0.2rem 0.7rem;
+  transition: ease 0.2s;
+  font: normal 500 16px/18px 'Poppins';
+  letter-spacing: 0.022em;
+  cursor: pointer;
+}
+
+.link:hover {
+  color: var(--borde-oscuro);
+}
+
+.active {
+  color: var(--color-primario);
+}
+
+.scrolled {
+  height: 6%;
+  background: #1e1e1e;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+}
+
+.scrolled::before {
+  content: ' ';
+  position: absolute;
+  top: 57px;
+  left: 0;
+  width: 100%;
+  height: 73px;
+  background: url('../../Assets/Svg/Shapes/headerShape.svg');
+  animation: fadeIn forwards 0.3s ease-out;
+}
+
+@keyframes fadeIn {
+  from {
+    top: 40px;
+  }
+
+  to {
+    top: 57px;
+  }
+}
+
+.scrolled .link {
+  color: var(--borde-medio);
+}
+
+.scrolled .active {
+  color: var(--color-primario);
+}
+
+.appHeader {
+  position: fixed;
+  width: 100%;
+  height: 8%;
+  padding-inline: 4%;
+  padding-block: 0.5rem;
+  background: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  z-index: 10;
+  display: flex;
+  gap: 0.5rem;
+  background: var(--fondo-secundario);
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+}
+
+.button {
+  width: 2rem;
+  height: 2rem;
+  display: grid;
+  place-items: center;
+  background: 0;
+  outline: 0;
+  border: 0;
+  cursor: pointer;
+}
+
+.button i {
+  padding: 0;
+  line-height: 0;
+}
+
+.title {
+  font: normal 500 21px/23px 'Roboto';
+}
+
+.header > span {
+  text-transform: capitalize;
+  color: var(--color-primario);
+}
+
+.adminHeader {
+  position: fixed;
+  width: 100%;
+  height: 8%;
+  padding-inline: 4%;
+  padding-block: 0.5rem;
+  background: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  z-index: 10;
+  display: flex;
+  gap: 0.5rem;
+  background: var(--fondo-secundario);
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+}
+
+.content {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}

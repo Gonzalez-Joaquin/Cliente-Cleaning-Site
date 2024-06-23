@@ -1,0 +1,61 @@
+.button {
+  font: normal 500 16px/20px 'Poppins';
+  padding: 0.625rem 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background: 0;
+  outline: 0;
+  border: 0;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: ease 0.2s;
+}
+
+.button > i {
+  line-height: 10px;
+  padding: 0;
+}
+
+.button:disabled {
+  opacity: 0.5;
+}
+
+.default {
+  color: var(--color-primario);
+}
+
+.elevated {
+  background: #f7f2fa;
+  box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.3), 0px 1px 3px 1px rgba(0, 0, 0, 0.15);
+}
+
+.elevated:hover {
+  background: rgba(103, 80, 164, 0.08);
+  box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.3), 0px 2px 6px 2px rgba(0, 0, 0, 0.15);
+}
+
+.outlined {
+  border: 1px solid #79747e;
+}
+
+.outlined:hover {
+  background: rgba(103, 80, 164, 0.08);
+}
+
+.filled {
+  position: relative;
+  background: var(--color-primario);
+  color: #ffffff;
+}
+
+.filled:hover::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.12);
+}

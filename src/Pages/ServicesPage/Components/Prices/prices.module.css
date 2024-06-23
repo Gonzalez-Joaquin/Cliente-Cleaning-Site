@@ -1,0 +1,113 @@
+.prices {
+  padding-inline: 5%;
+  padding-block: 6rem;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.prices h2 {
+  color: var(--texto-principal);
+  font-weight: 500;
+  font-size: 3.2rem;
+  padding-left: 5%;
+  margin-bottom: 2rem;
+  position: relative;
+  z-index: 10;
+  line-height: 3rem;
+}
+
+.table {
+  width: 90%;
+  margin: 0 auto;
+  border-collapse: collapse;
+  display: flex;
+  flex-direction: column;
+  border-radius: 1.2rem;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}
+
+.table th,
+.table td {
+  padding: 20px 20px;
+  text-align: left;
+  border-bottom: 1px solid var(--detalle);
+}
+
+.table thead {
+  width: 100%;
+}
+
+.table thead tr {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.table thead tr th {
+  width: 100%;
+}
+
+.table .price {
+  max-width: 15rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-left: 1px solid var(--detalle);
+}
+
+.table thead .services,
+.table thead .price {
+  font: normal 400 1.5rem / normal 'Poppins';
+  color: var(--texto-secundario);
+}
+
+.table th {
+  background-color: var(--fondo-secundario);
+  color: var(--texto-principal);
+}
+
+.table td {
+  color: var(--texto-claro);
+}
+
+.tbody {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.tbody tr {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.tbody tr td {
+  width: 100%;
+}
+
+.tbody .price {
+  max-width: 15rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-left: 1px solid var(--detalle);
+}
+
+.tbody .name {
+  font: normal 400 1rem / normal 'Poppins';
+  color: var(--texto-claro);
+}
+
+.table tr:nth-last-child(1) > td {
+  border-bottom: 0;
+}
+
+.tbody tr:nth-child(odd) {
+  background-color: var(--fondo-principal);
+}
+
+.tbody tr:nth-child(even) {
+  background-color: var(--fondo-secundario);
+}

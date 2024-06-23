@@ -1,0 +1,7 @@
+export { default as GeneralInfoForm } from './GeneralInfoForm/GeneralInfoForm'
+export { default as InformationForm } from './InformationForm/InformationForm'
+export { default as PageInfoForm } from './PageInfoForm/PageInfoForm'
+export { default as CommonInput } from './CommonInput/CommonInput'
+export { default as StepsLayout } from './StepsLayout/StepsLayout'
+export { default as PricesForm } from './PricesForm/PricesForm'
+export { default as PopUpInput } from './PopUpInput/PopUpInput'

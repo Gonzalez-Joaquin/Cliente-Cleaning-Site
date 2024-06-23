@@ -1,0 +1,39 @@
+.commonInput {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.commonInput > input {
+  font-size: 1.25rem;
+  padding: 0.5rem 1.5rem;
+  border-radius: 6px;
+  border: 1px solid var(--borde-oscuro);
+  background: transparent;
+}
+
+.commonInput > textarea {
+  font-size: 1.25rem;
+  padding: 0.5rem 1.5rem;
+  border-radius: 6px;
+  border: 1px solid var(--borde-oscuro);
+  background: transparent;
+  resize: none;
+  height: 15em;
+}
+
+.commonInput > input::placeholder,
+.commonInput > textarea::placeholder {
+  color: var(--accion-secundaria);
+}
+
+.commonInput > input,
+.commonInput > textarea {
+  color: var(--texto-claro);
+}
+
+.commonInput > input:is(:hover, :focus, :focus-visible, :active),
+.commonInput > textarea:is(:hover, :focus, :focus-visible, :active) {
+  border-color: var(--color-primario);
+  outline: 0;
+}

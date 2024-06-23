@@ -1,0 +1,117 @@
+.tableRow {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  padding-right: 5%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  max-height: 4rem;
+  box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 0px 1px;
+  transition: ease-out 0.2s;
+}
+
+.lastRow {
+  box-shadow: unset;
+}
+
+.tableRow:hover {
+  background-color: #fffbea;
+}
+
+.flecha {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 4rem;
+  height: 100%;
+  display: grid;
+  place-items: center;
+  background: transparent;
+  border: 0;
+  outline: 0;
+  cursor: pointer;
+}
+
+.flecha > i {
+  line-height: 0;
+  padding: 0;
+  color: var(--color-primario);
+  transition: ease 0.2s;
+}
+
+.flecha > i:hover {
+  color: var(--color-secundario);
+}
+
+.tableRow > td {
+  padding: 0.5rem 1rem;
+  text-transform: capitalize;
+  font: normal 500 18px/21px 'Poppins';
+  color: var(--texto-claro);
+}
+
+.id {
+  width: 5%;
+  height: 100%;
+  display: grid;
+  place-items: center;
+  border-right: 1px solid var(--borde-claro);
+}
+
+.title {
+  width: 45%;
+  color: var(--texto-principal) !important;
+}
+
+.icon {
+  color: var(--color-primario) !important;
+}
+
+.icon,
+.info,
+.service,
+.actions {
+  width: 12.5%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.actions {
+  gap: 1rem;
+}
+
+.actions > i {
+  line-height: 0;
+  padding: 0;
+  cursor: pointer;
+  transition: ease-out 0.2s;
+}
+
+.actions > i:hover {
+  color: var(--color-primario);
+}
+
+.tag {
+  padding: 0.2rem 1rem;
+  border-radius: 50px;
+  background: rgba(255, 225, 137, 0.2);
+  color: var(--color-primario) !important;
+  font: normal 400 18px/21px 'Poppins';
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+@media (max-width: 1550px) {
+  .title {
+    width: 30%;
+  }
+  .icon,
+  .info,
+  .service,
+  .actions {
+    width: 17%;
+  }
+}

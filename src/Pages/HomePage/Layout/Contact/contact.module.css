@@ -1,0 +1,149 @@
+.element {
+  position: relative;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+.section {
+  position: relative;
+  width: 100%;
+  height: 92%;
+  max-height: 35rem;
+  background-image: linear-gradient(to bottom, #232323, #222222, #202020, #1f1f1f, #1e1e1e);
+}
+
+.section::before {
+  content: ' ';
+  position: absolute;
+  top: -69px;
+  left: 0;
+  width: 100%;
+  height: 70px;
+  background-image: url('../../../../Assets/Svg/Shapes/bgTopContactShape.svg');
+}
+
+.article {
+  padding-inline: 5%;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  gap: 5rem;
+}
+
+.content {
+  width: 100%;
+  height: 100%;
+  display: flex;
+}
+
+.article h2 {
+  color: var(--fondo-principal);
+  font-weight: 500;
+  font-size: 3.2rem;
+  padding-left: 4.33%;
+  margin-bottom: 2rem;
+  position: relative;
+  z-index: 10;
+}
+
+.info {
+  width: 100%;
+  height: 100%;
+  padding-left: 5%;
+}
+
+.info h3 {
+  color: var(--borde-oscuro);
+  margin-bottom: 1.5rem;
+}
+
+.list {
+  padding-left: 5%;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.item a {
+  font: normal 500 1.25rem / normal 'Poppins';
+  color: var(--borde-oscuro);
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+}
+
+.item a > i {
+  line-height: 0;
+  padding-right: 1rem;
+}
+
+.item span {
+  color: var(--borde-oscuro);
+  display: flex;
+  align-items: center;
+}
+
+.item span i {
+  line-height: 0;
+  padding-right: 1rem;
+}
+
+.container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.container h4 {
+  color: var(--detalle);
+}
+
+.form {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.form form {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  padding-bottom: 2rem;
+}
+
+.formField {
+  width: 100%;
+  display: flex;
+  gap: 5rem;
+}
+
+.formTextArea {
+  width: 100%;
+  height: 100%;
+}
+
+.form button {
+  width: 200px;
+  margin-left: auto;
+}
+
+.footer {
+  width: 100%;
+  height: 10%;
+  background: #1e1e1e;
+  color: var(--fondo-principal);
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding-inline: 5%;
+}

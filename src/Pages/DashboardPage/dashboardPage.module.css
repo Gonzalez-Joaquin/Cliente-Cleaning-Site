@@ -1,0 +1,13 @@
+.section {
+  padding-inline: 5%;
+  padding-block: calc(4% + 2rem) 4rem;
+  background: var(--fondo-terciario);
+}
+
+.article {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
