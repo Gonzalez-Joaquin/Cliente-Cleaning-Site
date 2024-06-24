@@ -385,32 +385,6 @@ export const ServicesPage: Array<IServiceData> = [
     },
     active: true,
   },
-  {
-    id: 6,
-    title: 'Motor',
-    icon: 'car',
-    portada: auto2,
-    desc: 'Limpieza de motores a vapor, sin dañar tus auto partes.',
-    active: true,
-    page: {
-      title: 'Limpieza de motores a domicilio',
-      desc: 'Todo tipo de prácticas para conseguir el mejor resultado.',
-      text: [],
-    },
-    information: [
-      {
-        img: auto2,
-        title: 'Auto 2',
-        text: 'auto 2 descripción',
-      },
-    ],
-    prices: [
-      {
-        name: 'Limpieza de motor',
-        price: 40000,
-      },
-    ],
-  },
 ]
 
 export default ServicesPage
