@@ -9,13 +9,13 @@ import { RoutesWithNotFound } from './Utilities'
 import AuthGuard from './Guard/auth.guard'
 import { Header } from './Components'
 import store from './Store/store'
-import CreateService from './Pages/CreateService/CreateService'
 
 // Lazy Loading
 const Login = lazy(() => import('./Pages/Login/Login'))
 const HomePage = lazy(() => import('./Pages/HomePage/HomePage'))
 const ServicePage = lazy(() => import('./Pages/ServicesPage/ServicesPage'))
 const DashboardPage = lazy(() => import('./Pages/DashboardPage/DashboardPage'))
+const CreateService = lazy(() => import('./Pages/CreateService/CreateService'))
 const SocialMediasPage = lazy(() => import('./Pages/SocialMediasPage/SocialMediasPage'))
 
 const App = () => {

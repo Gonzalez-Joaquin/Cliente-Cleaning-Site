@@ -1,5 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit'
-import { clearLocalStorage, persistLocalStorage } from '../../Utilities'
+
+import { signOut } from 'firebase/auth'
+import { auth } from '../../firebase'
 
 interface IUser {
   name: string
@@ -13,19 +15,17 @@ export const UserKey = 'user'
 
 export const userSlice = createSlice({
   name: 'user',
-  initialState: localStorage.getItem('user') ? JSON.parse(localStorage.getItem('user') as string) : EmptyUserState,
+  initialState: EmptyUserState,
   reducers: {
     createUser: (_state, action) => {
-      persistLocalStorage<IUser>(UserKey, action.payload)
       return action.payload
     },
     updateUser: (state, action) => {
       const result = { ...state, ...action.payload }
-      persistLocalStorage<IUser>(UserKey, result)
       return result
     },
     resetUser: () => {
-      clearLocalStorage(UserKey)
+      signOut(auth)
       return EmptyUserState
     },
   },
