@@ -5,6 +5,7 @@
 }
 
 .article {
+  margin-inline: 2rem;
   padding: 4rem 3rem;
   margin-top: 75px;
   height: auto;

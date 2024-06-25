@@ -1,157 +1,242 @@
 .header {
+  width: 100vw;
+  height: 4rem;
   position: fixed;
+  top: 0;
+  left: 0;
+  display: flex;
+  z-index: 100000;
+  transition: ease 0.3s;
+}
+
+.headerContainer {
   width: 100%;
-  height: 4%;
-  padding-inline: 10% 3%;
-  padding-block: 0.5rem;
-  background: transparent;
+  height: 100%;
+  padding-inline: 2rem;
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  z-index: 51;
-  box-shadow: unset;
-  transition: ease 0.2s;
+  justify-content: flex-end;
 }
 
-.header * {
-  transition: ease 0.2s;
+.burgerContainer {
+  width: 30px;
+  height: 30px;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  z-index: 1000;
 }
 
-.hidden {
-  display: none;
-  visibility: hidden;
-  opacity: 0;
+.burgerContainer > i {
+  line-height: 0;
+  transition: ease 0.3s;
+}
+
+.burgerContainer:is(:hover, :focus, :focus-visible, :focus-within, :active) i {
+  cursor: pointer;
+  color: var(--color-primario) !important;
+}
+
+.iconClose {
+  color: var(--color-primario);
+}
+
+.iconOpen {
+  color: var(--accion-secundaria);
 }
 
 .nav {
-  width: fit-content;
-  height: 100%;
-  display: grid;
-  place-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: flex-end;
+  backdrop-filter: brightness(60%);
+  opacity: 0;
+  visibility: hidden;
+  transition: ease 0.3s;
+}
+
+.navOpen {
+  visibility: visible;
+  opacity: 1;
 }
 
 .ul {
+  padding: 6rem 3rem;
+  width: calc(100% - 6rem);
+  height: 100%;
   display: flex;
-  gap: 0.5rem;
+  background: #1e1e1e;
+  transform: translateX(50%);
+  transition: ease 0.3s;
   list-style: none;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 1rem;
+  flex-direction: column;
+}
+
+.navOpen > .ul {
+  transform: translateX(0%);
 }
 
 .link,
 .active {
-  text-decoration: none;
-  color: var(--fondo-seccion);
-  padding: 0.2rem 0.7rem;
-  transition: ease 0.2s;
-  font: normal 500 16px/18px 'Poppins';
-  letter-spacing: 0.022em;
+  font: normal 500 18px/21px 'Poppins';
+  color: var(--fondo-principal);
+  transition: ease 0.3s;
   cursor: pointer;
 }
 
-.link:hover {
-  color: var(--borde-oscuro);
+.liClose {
+  margin-top: auto;
+}
+
+.liClose > a {
+  display: flex;
+  gap: 0.7rem;
+  align-items: center;
+}
+
+.liClose span {
+  color: var(--fondo-principal);
+  font: normal 500 21px/21px 'Poppins';
+}
+
+.liClose i {
+  line-height: 0;
+  font-size: 18px;
+}
+
+.link:is(:hover, :focus, :focus-visible, :focus-within, :active),
+.active:is(:hover, :focus, :focus-visible, :focus-within, :active) {
+  color: var(--color-primario);
 }
 
 .active {
-  color: var(--color-primario);
-}
-
-.scrolled {
-  height: 6%;
-  background: #1e1e1e;
-  box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
-}
-
-.scrolled::before {
-  content: ' ';
-  position: absolute;
-  top: 57px;
-  left: 0;
-  width: 100%;
-  height: 73px;
-  background: url('../../Assets/Svg/Shapes/headerShape.svg');
-  animation: fadeIn forwards 0.3s ease-out;
-}
-
-@keyframes fadeIn {
-  from {
-    top: 40px;
-  }
-
-  to {
-    top: 57px;
-  }
-}
-
-.scrolled .link {
-  color: var(--borde-medio);
-}
-
-.scrolled .active {
-  color: var(--color-primario);
+  color: var(--color-primario) !important;
 }
 
 .appHeader {
   position: fixed;
+  top: 0;
+  left: 0;
   width: 100%;
-  height: 8%;
-  padding-inline: 4%;
-  padding-block: 0.5rem;
-  background: transparent;
+  height: 5rem;
   display: flex;
   align-items: center;
-  justify-content: flex-start;
-  z-index: 10;
-  display: flex;
+  padding-inline: 5%;
   gap: 0.5rem;
-  background: var(--fondo-secundario);
-  box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
-}
-
-.button {
-  width: 2rem;
-  height: 2rem;
-  display: grid;
-  place-items: center;
-  background: 0;
-  outline: 0;
-  border: 0;
-  cursor: pointer;
-}
-
-.button i {
-  padding: 0;
-  line-height: 0;
-}
-
-.title {
-  font: normal 500 21px/23px 'Roboto';
-}
-
-.header > span {
-  text-transform: capitalize;
-  color: var(--color-primario);
-}
-
-.adminHeader {
-  position: fixed;
-  width: 100%;
-  height: 8%;
-  padding-inline: 4%;
-  padding-block: 0.5rem;
-  background: transparent;
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-  z-index: 10;
-  display: flex;
-  gap: 0.5rem;
-  background: var(--fondo-secundario);
-  box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+  background: var(--fondo-principal);
+  z-index: 100;
 }
 
 .content {
   width: 100%;
+  height: 100%;
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
+
+.button {
+  height: 100%;
+  width: 3rem;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  background: 0;
+  outline: 0;
+  border: 0;
+  color: var(--texto-principal);
+}
+
+.button > i {
+  line-height: 0;
+  padding: 0;
+  transition: ease 0.3s;
+}
+
+.button:is(:hover, :focus, :focus-visible, :focus-within, :active) i {
+  color: var(--color-primario);
+}
+
+.scrolled {
+  background: #1e1e1e;
+}
+
+@media (min-width: 1025px) {
+  .headerContainer {
+    justify-content: flex-start;
+  }
+
+  .nav,
+  .navOpen {
+    position: unset;
+    top: unset;
+    left: unset;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: flex-start;
+    backdrop-filter: unset;
+    opacity: 1;
+    visibility: visible;
+    transition: ease 0.3s;
+  }
+
+  .burgerContainer {
+    display: none;
+  }
+
+  .ul {
+    padding-block: 0;
+    padding-inline: 10% 3%;
+    width: 100%;
+    height: 100%;
+    align-items: center;
+    background: unset;
+    transform: unset;
+    list-style: none;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 0.5rem;
+    flex-direction: row;
+    transition: ease 0.3s;
+  }
+
+  .link,
+  .active {
+    text-decoration: none;
+    color: var(--fondo-seccion);
+    padding: 0.2rem 0.7rem;
+    transition: ease 0.2s;
+    font: normal 500 16px/18px 'Poppins';
+    letter-spacing: 0.022em;
+    cursor: pointer;
+  }
+
+  .liClose {
+    margin-top: unset;
+    margin-left: auto;
+  }
+
+  .link > i,
+  .active > i {
+    font-size: 14px;
+  }
+
+  .link > span,
+  .active > span {
+    font: normal 500 16px/18px 'Poppins';
+    transition: ease 0.3s;
+  }
+
+  .link:is(:hover, :focus, :focus-visible, :focus-within, :active) > span,
+  .active:is(:hover, :focus, :focus-visible, :focus-within, :active) > span {
+    color: var(--color-primario);
+  }
 }

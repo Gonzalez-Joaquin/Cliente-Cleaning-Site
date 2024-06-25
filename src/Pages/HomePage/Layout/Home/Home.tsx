@@ -8,10 +8,10 @@ const Home = () => {
     <Element className={style.element} name={HomeModel.HOME}>
       <section className={style.section}>
         <article className={style.article}>
-          <h1>Limpiza de tapizados</h1>
+          <h1>Limpieza De Tapizados</h1>
           <p>
-            Presento una limpieza especializada en Sofás, Colchones, Sommiers, Alfombras, Sillas y Tapizados de
-            vehículos.
+            Renovamos y dejamos impecable todo tipo de tapizados, quitando manchas, acaros, olores y suciedad.
+            Eliminando hasta la última mancha y particula de polvo
           </p>
           <Button
             value="Servicios"

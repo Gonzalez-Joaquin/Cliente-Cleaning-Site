@@ -1,99 +1,166 @@
+/* jobs.module.css */
+
 .element {
-  position: relative;
   height: 100%;
-  max-height: 50rem;
-  background: var(--fondo-terciario);
-}
-
-.element::after{
-  content: ' ';
-  position: absolute;
-  left: 0;
-  width: 100%;
-  height: 70px;
-  top: -69px;
-  background-image: url('../../../../Assets/Svg/Shapes/bgTopTertiaryShape.svg');
-}
-
-.element::before{
-  position: absolute;
-  content: ' ';
-  left: 0;
-  bottom: -73px;
-  height: 73px;
-  width: 100%;
-  z-index: 10;
-  background-image: url('../../../../Assets/Svg/Shapes/bgBottomTertiaryShape.svg');
+  background: #1e1e1e;
 }
 
 .section {
-  width: 100%;
-  height: 100%;
-  padding-block: 4rem;
+  padding-top: 5rem;
 }
 
 .article {
   width: 100%;
   height: 100%;
-  max-height: 40rem;
-  padding-inline: 5%;
-  display: flex;
-  flex-direction: column;
-  gap: 2.5rem;
+  padding-block: 1rem;
 }
 
-.article h2 {
-  color: var(--texto-principal);
-  font-weight: 500;
-  font-size: 3.2rem;
-  padding-top: 3rem;
-  padding-left: 5%;
+.article > h2 {
+  padding-inline: 2rem;
+  font-size: 2rem;
   margin-bottom: 2rem;
-  position: relative;
-  z-index: 10;
-  line-height: 3rem;
+  color: var(--fondo-secundario);
 }
 
 .container {
   width: 100%;
   height: 100%;
   display: flex;
-  gap: 2rem;
-  padding-inline: 4rem;
+  overflow: hidden;
+  position: relative;
 }
 
 .item {
-  border-radius: 20px;
-  height: 100%;
-  display: flex;
-  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  min-width: 100vw;
+  transition: transform 0.5s ease-in-out;
 }
 
 .img {
-  border-radius: 20px 0px 0px 20px;
   width: 100%;
-  height: 100%;
-  background-size: cover;
+  height: 40vh;
   background-repeat: no-repeat;
+  background-size: cover;
   background-position: center;
 }
 
 .content {
   width: 100%;
   height: 100%;
-  padding: 2rem 2rem;
+  padding: 1rem;
+  background: var(--color-primario);
   display: flex;
   flex-direction: column;
-  gap: 2rem;
-  align-items: flex-start;
-  justify-content: space-between;
+  gap: 1rem;
 }
 
-.content h4 {
-  color: var(--texto-secundario);
-  font-weight: 500;
+.content > h4 {
+  font-size: 2rem;
+  color: var(--fondo-principal);
 }
 
-.content p {
-  color: var(--texto-claro);
+.content > p {
+  font-size: 1rem;
+  color: var(--fondo-terciario);
+}
+
+.active {
+  transform: translateX(0);
+}
+
+@media (min-width: 1025px) {
+  .element {
+    position: relative;
+    max-height: 50rem;
+    background: var(--fondo-terciario);
+  }
+
+  .element::after {
+    content: ' ';
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 70px;
+    top: -69px;
+    background-image: url('../../../../Assets/Svg/Shapes/bgTopTertiaryShape.svg');
+  }
+
+  .element::before {
+    position: absolute;
+    content: ' ';
+    left: 0;
+    bottom: -73px;
+    height: 73px;
+    width: 100%;
+    z-index: 10;
+    background-image: url('../../../../Assets/Svg/Shapes/bgBottomTertiaryShape.svg');
+  }
+
+  .section {
+    width: 100%;
+    height: 100%;
+    padding-block: 4rem;
+  }
+
+  .article {
+    width: 100%;
+    height: 100%;
+    max-height: 40rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem;
+  }
+
+  .article h2 {
+    color: var(--texto-principal);
+    font-weight: 500;
+    font-size: 3.2rem;
+    padding-top: 3rem;
+    padding-left: 5%;
+    margin-bottom: 2rem;
+    position: relative;
+    z-index: 10;
+    line-height: 3rem;
+  }
+
+  .container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+  }
+
+  .item {
+    border-radius: 20px;
+    height: 100%;
+    display: flex;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  }
+
+  .img {
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+
+  .content {
+    width: 100%;
+    height: 100%;
+    padding: 2rem 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    align-items: flex-start;
+    justify-content: flex-start;
+  }
+
+  .content h4 {
+    color: var(--fondo-secundario);
+    font-weight: 700;
+  }
+
+  .content p {
+    color: var(--fondo-terciario);
+    font-weight: 500;
+  }
 }
