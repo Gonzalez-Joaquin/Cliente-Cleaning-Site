@@ -6,7 +6,7 @@ import { useEffect, useState } from 'react'
 
 const Jobs = () => {
   const [currentIndex, setCurrentIndex] = useState<number>(0)
-  const [isPaused, setIsPaused] = useState<boolean>(false)
+  const [isPaused, setIsPaused] = useState<boolean>(true)
   const ListOfJobs = useAppSelector(store => store.jobs)
 
   useEffect(() => {
