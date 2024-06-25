@@ -9,16 +9,16 @@ import { CardServices } from './Components'
 import style from './services.module.css'
 
 const Services = () => {
-  const ServicesList = useAppSelector(state => state.services)
+  const { listOfServices } = useAppSelector(state => state.services)
   const [currentPage, setCurrentPage] = useState(1)
   const navigate = useNavigate()
 
   const servicesPerPage = 6
   const indexOfLastService = currentPage * servicesPerPage
   const indexOfFirstService = indexOfLastService - servicesPerPage
-  const currentServices = ServicesList.slice(indexOfFirstService, indexOfLastService)
+  const currentServices = listOfServices.slice(indexOfFirstService, indexOfLastService)
 
-  const totalPages = Math.ceil(ServicesList.length / servicesPerPage)
+  const totalPages = Math.ceil(listOfServices.length / servicesPerPage)
 
   const nextPage = () => {
     if (currentPage < totalPages) {
@@ -32,6 +32,8 @@ const Services = () => {
     }
   }
 
+
+  
   return (
     <Element className={style.element} name={HomeModel.SERVICES}>
       <section className={style.section}>

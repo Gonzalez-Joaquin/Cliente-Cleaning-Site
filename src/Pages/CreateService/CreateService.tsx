@@ -2,12 +2,13 @@ import { createContext, useContext, useEffect, useState } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
 
 import { GeneralInfoForm, PageInfoForm, InformationForm, PricesForm, StepsLayout } from './Components'
-import { createService, updateService } from '../../Store/Reducers/services.reducer'
+import { updateService } from '../../Store/Reducers/services.reducer'
 import { useAppDispatch, useAppSelector } from '../../Hooks/useRedux'
+import { addService } from '../../Store/Thunks/service.thunks'
 import { IServiceData } from '../../Data/services.data'
+import { useToast } from '../../Context/ToastContext'
 import RoutesModel from '../../Models/routes.models'
 import style from './createService.module.css'
-import { useToast } from '../../Context/ToastContext'
 
 interface ICreateServiceContext {
   step: number
@@ -35,7 +36,7 @@ const CreateServiceContext = createContext<ICreateServiceContext>({
 export const useCreateService = () => useContext(CreateServiceContext)
 
 const CreateService = () => {
-  const listOfService = useAppSelector(state => state.services)
+  const { listOfServices } = useAppSelector(state => state.services)
   const dispatch = useAppDispatch()
   const { showToast } = useToast()
   const navigate = useNavigate()
@@ -88,17 +89,18 @@ const CreateService = () => {
   }
 
   const setPrices = (prices: Array<IServiceData['prices'][0]>) => {
-    setServiceData(prevData => ({
-      ...prevData,
+    const updatedServiceData = {
+      ...serviceData,
       prices: prices,
-    }))
-    // Puedes manejar aquí qué hacer después de completar el último paso
+    }
+    setServiceData(updatedServiceData)
+
     if (isEditing) {
       showToast('El servicio fue modificado con éxito!', 'success')
-      dispatch(updateService(serviceData))
+      dispatch(updateService(updatedServiceData))
     } else {
       showToast('El servicio fue creado con éxito!', 'success')
-      dispatch(createService(serviceData))
+      dispatch(addService(updatedServiceData))
     }
     navigate(`/${RoutesModel.DASHBOARD}`)
   }
@@ -109,7 +111,7 @@ const CreateService = () => {
 
   useEffect(() => {
     if (id) {
-      const response = listOfService.find(item => item.id === +id)
+      const response = listOfServices.find(item => item.id === +id)
 
       if (!response) return
 

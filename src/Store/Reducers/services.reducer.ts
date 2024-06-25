@@ -1,27 +1,43 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
+import { IServiceData } from '../../Data/services.data'
 
-import ServicesPage, { IServiceData } from '../../Data/services.data'
+interface DTOService {
+  loadingService: boolean
+  listOfServices: Array<IServiceData>
+}
 
-const initialState: Array<IServiceData> = ServicesPage
+const initialState: DTOService = {
+  loadingService: false,
+  listOfServices: [],
+}
 
 const servicesSlice = createSlice({
   name: 'services',
   initialState,
   reducers: {
+    startLoadingServices: state => {
+      state.loadingService = true
+    },
+    stopLoadingServices: state => {
+      state.loadingService = false
+    },
+    setServices: (state, action: PayloadAction<Array<IServiceData>>) => {
+      state.listOfServices = action.payload
+    },
     createService: (state, action: PayloadAction<IServiceData>) => {
-      state.push(action.payload)
+      state.listOfServices.push(action.payload)
     },
     updateService: (state, action: PayloadAction<IServiceData>) => {
-      const index = state.findIndex(job => job.id === action.payload.id)
+      const index = state.listOfServices.findIndex(service => service.id === action.payload.id)
       if (index !== -1) {
-        state[index] = action.payload
+        state.listOfServices[index] = action.payload
       }
     },
     deleteService: (state, action: PayloadAction<number>) => {
-      return state.filter(job => job.id !== action.payload)
+      state.listOfServices = state.listOfServices.filter(service => service.id !== action.payload)
     },
     toggleService: (state, action: PayloadAction<number>) => {
-      const service = state.find(service => service.id === action.payload)
+      const service = state.listOfServices.find(service => service.id === action.payload)
       if (service) {
         service.active = !service.active
       }
@@ -29,6 +45,14 @@ const servicesSlice = createSlice({
   },
 })
 
-export const { createService, updateService, deleteService, toggleService } = servicesSlice.actions
+export const {
+  startLoadingServices,
+  stopLoadingServices,
+  setServices,
+  createService,
+  updateService,
+  deleteService,
+  toggleService,
+} = servicesSlice.actions
 
 export default servicesSlice.reducer

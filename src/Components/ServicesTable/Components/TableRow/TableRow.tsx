@@ -23,6 +23,7 @@ const TableRow = ({ service, lastRow }: Props) => {
   const dispatch = useAppDispatch()
   const navigate = useNavigate()
   const { showToast } = useToast()
+
   return (
     <tr className={`${style.tableRow} ${lastRow ? style.lastRow : ''}`}>
       <td className={style.id}>{id}</td>

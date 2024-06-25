@@ -1,10 +1,9 @@
-// context/DashboardContext.tsx
-import React, { createContext, useState, useContext, useEffect } from 'react'
+import React, { createContext, useState, useContext, useEffect, useMemo } from 'react'
 import { IServiceData } from '../Data/services.data'
 import { useAppSelector } from '../Hooks/useRedux'
 
 interface IDashboardContext {
-  services: Array<IServiceData>
+  services: Array<IServiceData> | undefined
   searchValue: string
   setSearchValue: React.Dispatch<React.SetStateAction<string>>
 }
@@ -24,16 +23,13 @@ interface Props {
 }
 
 export const DashboardContextProvider = ({ children }: Props) => {
-  const [services, setServices] = useState<Array<IServiceData>>([])
+  const { listOfServices } = useAppSelector(state => state.services)
   const [searchValue, setSearchValue] = useState<string>('')
 
-  const listOfServices = useAppSelector(state => state.services)
-
-  useEffect(() => {
-    const filteredServices = listOfServices.filter(service =>
-      service.title.toLowerCase().includes(searchValue.toLowerCase())
-    )
-    setServices(filteredServices)
+  const services = useMemo(() => {
+    if (listOfServices) {
+      return listOfServices.filter(service => service.title?.toLowerCase().includes(searchValue.toLowerCase()))
+    }
   }, [listOfServices, searchValue])
 
   return (

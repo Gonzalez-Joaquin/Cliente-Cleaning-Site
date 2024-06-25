@@ -6,13 +6,13 @@ import style from './services.module.css'
 import { useAppSelector } from '../../Hooks/useRedux'
 
 const Services = () => {
-  const ServicesPage = useAppSelector(state => state.services)
-  const [service, setService] = useState(ServicesPage[0])
+  const { listOfServices } = useAppSelector(state => state.services)
+  const [service, setService] = useState(listOfServices[0])
   const { id } = useParams()
 
   useEffect(() => {
     if (id) {
-      const object = ServicesPage.find(item => item.id === +id)
+      const object = listOfServices.find(item => item.id === +id)
       if (object) {
         setService(object)
       }
