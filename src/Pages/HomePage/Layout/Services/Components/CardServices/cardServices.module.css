@@ -69,6 +69,7 @@
     cursor: pointer;
     padding: 1.5rem;
     display: flex;
+    flex-direction: unset;
     gap: 0.5rem;
     background: #16161639;
     box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
@@ -94,6 +95,7 @@
   .data {
     width: 100%;
     display: flex;
+    align-items: flex-start;
     flex-direction: column;
     gap: 0.5rem;
   }
@@ -108,5 +110,6 @@
     font-size: 15px;
     color: var(--borde-claro);
     transition: ease 0.2s;
+    display: unset;
   }
 }

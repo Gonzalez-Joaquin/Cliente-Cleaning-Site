@@ -71,6 +71,7 @@
   .element {
     position: relative;
     max-height: 50rem;
+    background: var(--fondo-terciario);
   }
 
   .element::after {
@@ -104,7 +105,6 @@
     width: 100%;
     height: 100%;
     max-height: 40rem;
-    padding-inline: 5%;
     display: flex;
     flex-direction: column;
     gap: 2.5rem;
@@ -126,8 +126,6 @@
     width: 100%;
     height: 100%;
     display: flex;
-    gap: 2rem;
-    padding-inline: 4rem;
   }
 
   .item {
@@ -138,7 +136,6 @@
   }
 
   .img {
-    border-radius: 20px 0px 0px 20px;
     width: 100%;
     height: 100%;
     background-size: cover;
@@ -154,15 +151,16 @@
     flex-direction: column;
     gap: 2rem;
     align-items: flex-start;
-    justify-content: space-between;
+    justify-content: flex-start;
   }
 
   .content h4 {
-    color: var(--texto-secundario);
-    font-weight: 500;
+    color: var(--fondo-secundario);
+    font-weight: 700;
   }
 
   .content p {
-    color: var(--texto-claro);
+    color: var(--fondo-terciario);
+    font-weight: 500;
   }
 }

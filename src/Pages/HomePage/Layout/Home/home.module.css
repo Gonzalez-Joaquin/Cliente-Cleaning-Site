@@ -125,6 +125,13 @@
     right: 1rem;
     bottom: 15vh;
     z-index: 10;
+    width: unset;
+    height: unset;
+    padding-inline: unset;
+    gap: unset;
+    align-items: unset;
+    justify-content: unset;
+    background: unset;
   }
 
   .wrapper .icon {
@@ -138,6 +145,9 @@
     place-items: center;
     cursor: pointer;
     transition: all 0.2s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    padding: unset;
+    align-items: unset;
+    gap: unste;
   }
 
   .wrapper .tooltip {

@@ -14,7 +14,7 @@ const Jobs = () => {
 
     const interval = setInterval(() => {
       setCurrentIndex(prevIndex => (prevIndex + 1) % ListOfJobs.length)
-    }, 3000)
+    }, 3500)
 
     return () => clearInterval(interval)
   }, [isPaused])

@@ -177,7 +177,7 @@ export const ServicesPage: Array<IServiceData> = [
   {
     id: 2,
     title: 'Sommier',
-    icon: 'bed',
+    icon: 'bed-alt',
     portada: portadaSommier,
     desc: 'Mantené tu sommier limpio y libre de polvo. Nuestra limpieza a fondo asegura que tu sommier esté en perfectas condiciones para un descanso óptimo.',
     information: [

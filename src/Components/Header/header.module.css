@@ -6,7 +6,7 @@
   left: 0;
   display: flex;
   z-index: 100000;
-  transition: ease .3s;
+  transition: ease 0.3s;
 }
 
 .headerContainer {
@@ -117,7 +117,7 @@
 }
 
 .active {
-  color: var(--color-primario);
+  color: var(--color-primario) !important;
 }
 
 .appHeader {
@@ -164,6 +164,79 @@
   color: var(--color-primario);
 }
 
-.scrolled{
+.scrolled {
   background: #1e1e1e;
+}
+
+@media (min-width: 1025px) {
+  .headerContainer {
+    justify-content: flex-start;
+  }
+
+  .nav,
+  .navOpen {
+    position: unset;
+    top: unset;
+    left: unset;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: flex-start;
+    backdrop-filter: unset;
+    opacity: 1;
+    visibility: visible;
+    transition: ease 0.3s;
+  }
+
+  .burgerContainer {
+    display: none;
+  }
+
+  .ul {
+    padding-block: 0;
+    padding-inline: 10% 3%;
+    width: 100%;
+    height: 100%;
+    align-items: center;
+    background: unset;
+    transform: unset;
+    list-style: none;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 0.5rem;
+    flex-direction: row;
+    transition: ease 0.3s;
+  }
+
+  .link,
+  .active {
+    text-decoration: none;
+    color: var(--fondo-seccion);
+    padding: 0.2rem 0.7rem;
+    transition: ease 0.2s;
+    font: normal 500 16px/18px 'Poppins';
+    letter-spacing: 0.022em;
+    cursor: pointer;
+  }
+
+  .liClose {
+    margin-top: unset;
+    margin-left: auto;
+  }
+
+  .link > i,
+  .active > i {
+    font-size: 14px;
+  }
+
+  .link > span,
+  .active > span {
+    font: normal 500 16px/18px 'Poppins';
+    transition: ease 0.3s;
+  }
+
+  .link:is(:hover, :focus, :focus-visible, :focus-within, :active) > span,
+  .active:is(:hover, :focus, :focus-visible, :focus-within, :active) > span {
+    color: var(--color-primario);
+  }
 }
