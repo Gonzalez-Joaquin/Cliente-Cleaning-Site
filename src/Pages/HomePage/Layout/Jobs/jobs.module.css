@@ -1,12 +1,8 @@
 /* jobs.module.css */
 
 .element {
-  height: 100%;
+  height: 130%;
   background: #1e1e1e;
-}
-
-.section {
-  padding-top: 4.5rem;
 }
 
 .article {
@@ -56,7 +52,8 @@
 }
 
 .content > h4 {
-  font-size: 2rem;
+  font-size: 1.375rem;
+  line-height: normal;
   color: var(--fondo-principal);
 }
 
@@ -67,6 +64,13 @@
 
 .active {
   transform: translateX(0);
+}
+
+@media (min-width: 400px) {
+  .element {
+    height: 100%;
+    background: #1e1e1e;
+  }
 }
 
 @media (min-width: 1025px) {
@@ -159,10 +163,12 @@
   .content h4 {
     color: var(--fondo-secundario);
     font-weight: 700;
+    font-size: 2.5rem;
   }
 
   .content p {
     color: var(--fondo-terciario);
     font-weight: 500;
+    font-size: 1.5rem;
   }
 }

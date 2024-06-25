@@ -50,7 +50,7 @@
 
 .downContainer {
   width: 100%;
-  bottom: 3rem;
+  bottom: 6rem;
   position: absolute;
   z-index: 10;
   display: grid;

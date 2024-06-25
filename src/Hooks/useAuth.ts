@@ -1,8 +1,7 @@
-import { onAuthStateChanged, signInWithEmailAndPassword } from 'firebase/auth'
+import { signInWithEmailAndPassword } from 'firebase/auth'
 import { useState } from 'react'
-import { resetUser, updateUser } from '../Store/Reducers/user.reducer'
+
 import { useToast } from '../Context/ToastContext'
-import { useAppDispatch } from './useRedux'
 import { auth } from '../firebase'
 
 interface LoginDTO {
