@@ -62,7 +62,7 @@
 }
 
 .wrapper {
-  bottom: -3rem;
+  bottom: 0;
   position: absolute;
   width: 100%;
   height: 4.5rem;
