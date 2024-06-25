@@ -62,7 +62,7 @@ const Contact = () => {
           </div>
         </article>
       </section>
-      <footer className={style.footer}>(C) Copyright 2024, Todos los derechos reservados</footer>
+      <footer className={style.footer}>(C) Copyright 2024, Todos los derechos reservados - Vesion: 0.0.1</footer>
     </Element>
   )
 }
