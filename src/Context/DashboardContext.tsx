@@ -1,4 +1,4 @@
-import React, { createContext, useState, useContext, useEffect, useMemo } from 'react'
+import React, { createContext, useState, useContext, useMemo } from 'react'
 import { IServiceData } from '../Data/services.data'
 import { useAppSelector } from '../Hooks/useRedux'
 
