@@ -1,7 +1,6 @@
 import { useNavigate } from 'react-router-dom'
 import { useState } from 'react'
 
-import { useToast } from '../../Context/ToastContext'
 import { Button, FormInput } from '../../Components'
 import RoutesModel from '../../Models/routes.models'
 import useAuth from '../../Hooks/useAuth'
@@ -19,7 +18,6 @@ const Login = () => {
   })
 
   const { login, loading } = useAuth()
-  const { showToast } = useToast()
   const navigate = useNavigate()
 
   const handleInputChange = (name: string, value: string) => {
@@ -34,10 +32,7 @@ const Login = () => {
     const success = await login(user)
 
     if (success) {
-      showToast('Inicio de sesión exitoso', 'success')
       navigate(`/${RoutesModel.DASHBOARD}`)
-    } else {
-      showToast('Error en el inicio de sesión', 'error')
     }
   }
 

@@ -200,7 +200,7 @@ section {
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --color-primario: red;
+    --color-primario: #ffc30d;
     --color-secundario: #ffd547;
     --fondo-principal: #ffffff;
     --fondo-secundario: #fafafa;
