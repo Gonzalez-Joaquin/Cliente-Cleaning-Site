@@ -2,17 +2,16 @@ import { initializeApp } from 'firebase/app'
 import { getAuth } from 'firebase/auth'
 
 const firebaseConfig = {
-  apiKey: 'AIzaSyCfnQin23MuJw4dpMyDs2yEpxZzmwx72oA',
-  authDomain: 'gbcleaningsite-8fb92.firebaseapp.com',
-  projectId: 'gbcleaningsite-8fb92',
-  storageBucket: 'gbcleaningsite-8fb92.appspot.com',
-  messagingSenderId: '1037002112120',
-  appId: '1:1037002112120:web:eb010d00e6be60accec18d',
-  measurementId: 'G-4WR7JYMRKR',
+  apiKey: 'AIzaSyCxezGS6EKhifuL_4wqnXvcmyA94d7XFMA',
+  authDomain: 'gblimpiezadetapizados.firebaseapp.com',
+  projectId: 'gblimpiezadetapizados',
+  storageBucket: 'gblimpiezadetapizados.appspot.com',
+  messagingSenderId: '884866225097',
+  appId: '1:884866225097:web:b41a8cc7a68ed8557a8e18',
+  measurementId: 'G-MSNQM61ESV',
 }
 
 const firebaseApp = initializeApp(firebaseConfig)
 
 const auth = getAuth(firebaseApp)
-
 export { auth, firebaseApp }
