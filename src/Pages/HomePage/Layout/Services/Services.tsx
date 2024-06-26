@@ -31,8 +31,6 @@ const Services = () => {
       setCurrentPage(currentPage - 1)
     }
   }
-
-
   
   return (
     <Element className={style.element} name={HomeModel.SERVICES}>
@@ -47,7 +45,10 @@ const Services = () => {
                   <CardServices
                     item={item}
                     key={item.id}
-                    onClick={() => navigate(`/${RoutesModel.SERVICES}/${item.id}`)}
+                    onClick={() => {
+                      console.log(item)
+                      navigate(`/${RoutesModel.SERVICES}/${item.id}`)
+                    }}
                   />
                 ) : null
               )}

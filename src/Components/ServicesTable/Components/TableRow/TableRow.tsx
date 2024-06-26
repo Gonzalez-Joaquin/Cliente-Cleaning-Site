@@ -1,6 +1,7 @@
 import { useNavigate } from 'react-router-dom'
 
-import { deleteService, toggleService } from '../../../../Store/Reducers/services.reducer'
+import { toggleService } from '../../../../Store/Reducers/services.reducer'
+import { deleteService } from '../../../../Store/Thunks/service.thunks'
 import { useAppDispatch } from '../../../../Hooks/useRedux'
 import { useToast } from '../../../../Context/ToastContext'
 import RoutesModel from '../../../../Models/routes.models'
@@ -8,8 +9,9 @@ import style from './tableRow.module.css'
 import { Toggle } from '../../..'
 
 interface Props {
+  idx: number
   service: {
-    id: number
+    id: string
     title: string
     icon: string
     quantityServices: number
@@ -18,7 +20,7 @@ interface Props {
   lastRow: boolean
 }
 
-const TableRow = ({ service, lastRow }: Props) => {
+const TableRow = ({ idx, service, lastRow }: Props) => {
   const { id, title, icon, quantityServices, active } = service
   const dispatch = useAppDispatch()
   const navigate = useNavigate()
@@ -26,7 +28,7 @@ const TableRow = ({ service, lastRow }: Props) => {
 
   return (
     <tr className={`${style.tableRow} ${lastRow ? style.lastRow : ''}`}>
-      <td className={style.id}>{id}</td>
+      <td className={style.id}>{idx}</td>
       <td className={style.title}>{title}</td>
       <td className={style.icon}>
         <i className={`fi fi-br-${icon}`} />

@@ -2,9 +2,8 @@ import { createContext, useContext, useEffect, useState } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
 
 import { GeneralInfoForm, PageInfoForm, InformationForm, PricesForm, StepsLayout } from './Components'
-import { updateService } from '../../Store/Reducers/services.reducer'
+import { addService, editService } from '../../Store/Thunks/service.thunks'
 import { useAppDispatch, useAppSelector } from '../../Hooks/useRedux'
-import { addService } from '../../Store/Thunks/service.thunks'
 import { IServiceData } from '../../Data/services.data'
 import { useToast } from '../../Context/ToastContext'
 import RoutesModel from '../../Models/routes.models'
@@ -44,7 +43,7 @@ const CreateService = () => {
   const [step, setStep] = useState<number>(1) // Comienza en el paso 1
   const [isEditing, setIsEditing] = useState<boolean>(false)
   const [serviceData, setServiceData] = useState<IServiceData>({
-    id: 0,
+    id: '',
     title: '',
     icon: '',
     portada: '',
@@ -97,7 +96,7 @@ const CreateService = () => {
 
     if (isEditing) {
       showToast('El servicio fue modificado con éxito!', 'success')
-      dispatch(updateService(updatedServiceData))
+      dispatch(editService(updatedServiceData))
     } else {
       showToast('El servicio fue creado con éxito!', 'success')
       dispatch(addService(updatedServiceData))
@@ -111,7 +110,7 @@ const CreateService = () => {
 
   useEffect(() => {
     if (id) {
-      const response = listOfServices.find(item => item.id === +id)
+      const response = listOfServices.find(item => item.id === id)
 
       if (!response) return
 

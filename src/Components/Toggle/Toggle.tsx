@@ -1,7 +1,7 @@
 import './toggle.css'
 
 interface Props {
-  id: number
+  id: string
   value: boolean
   onChange: (value: boolean) => void
 }

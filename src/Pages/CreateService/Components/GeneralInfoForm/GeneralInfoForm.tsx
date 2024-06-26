@@ -79,7 +79,7 @@ const GeneralInfoForm = () => {
         <label className={style.toggle}>
           Activo
           <Toggle
-            id={0}
+            id={''}
             value={formData.active}
             onChange={e => {
               setFormData(prevData => ({

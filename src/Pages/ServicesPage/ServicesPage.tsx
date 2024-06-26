@@ -12,7 +12,7 @@ const Services = () => {
 
   useEffect(() => {
     if (id) {
-      const object = listOfServices.find(item => item.id === +id)
+      const object = listOfServices.find(item => item.id === id)
       if (object) {
         setService(object)
       }

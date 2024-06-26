@@ -12,6 +12,7 @@ const TableBody = () => {
           ? services.map((item, idx) => (
               <TableRow
                 key={item.id}
+                idx={idx}
                 service={{ ...item, quantityServices: item.prices.length }}
                 lastRow={idx + 1 === services.length}
               />

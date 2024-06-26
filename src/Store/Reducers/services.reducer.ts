@@ -33,10 +33,10 @@ const servicesSlice = createSlice({
         state.listOfServices[index] = action.payload
       }
     },
-    deleteService: (state, action: PayloadAction<number>) => {
+    deleteServiceRedux: (state, action: PayloadAction<string>) => {
       state.listOfServices = state.listOfServices.filter(service => service.id !== action.payload)
     },
-    toggleService: (state, action: PayloadAction<number>) => {
+    toggleService: (state, action: PayloadAction<string>) => {
       const service = state.listOfServices.find(service => service.id === action.payload)
       if (service) {
         service.active = !service.active
@@ -51,8 +51,8 @@ export const {
   setServices,
   createService,
   updateService,
-  deleteService,
   toggleService,
+  deleteServiceRedux,
 } = servicesSlice.actions
 
 export default servicesSlice.reducer

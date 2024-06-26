@@ -13,7 +13,7 @@ const DashboardPage = () => {
   useEffect(() => {
     if (!listOfServices || listOfServices?.length === 0) {
       dispatch(getServices())
-    }
+  }
   }, [])
 
   return (
