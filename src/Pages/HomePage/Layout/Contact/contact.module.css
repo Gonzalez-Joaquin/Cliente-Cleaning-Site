@@ -137,6 +137,9 @@
     width: 100%;
     height: 70px;
     background-image: url('../../../../Assets/Svg/Shapes/bgTopContactShape.svg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
   }
 
   .article {

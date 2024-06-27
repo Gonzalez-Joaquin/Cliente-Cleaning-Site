@@ -90,7 +90,7 @@
     background-image: url('../../../../Assets/Svg/Shapes/bgTopTertiaryShape.svg');
     background-repeat: no-repeat;
     background-position: center;
-    background-size: contain;
+    background-size: cover;
   }
 
   .element::before {
@@ -104,7 +104,7 @@
     background-image: url('../../../../Assets/Svg/Shapes/bgBottomTertiaryShape.svg');
     background-repeat: no-repeat;
     background-position: center;
-    background-size: contain;
+    background-size: cover;
   }
 
   .section {
