@@ -31,7 +31,7 @@ const Services = () => {
       setCurrentPage(currentPage - 1)
     }
   }
-  
+
   return (
     <Element className={style.element} name={HomeModel.SERVICES}>
       <section className={style.section}>

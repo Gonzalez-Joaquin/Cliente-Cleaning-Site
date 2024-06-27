@@ -103,6 +103,9 @@
     width: 100%;
     z-index: 10;
     background-image: url('../../../../Assets/Svg/Shapes/bgTopPrimaryShape.svg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
   }
 
   .section {
