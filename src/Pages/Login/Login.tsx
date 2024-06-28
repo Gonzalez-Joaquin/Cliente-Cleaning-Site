@@ -48,11 +48,13 @@ const Login = () => {
             name={'usernameLogin'}
             type="text"
             placeholder={'Nombre de usuario'}
+            value={user.username}
             newValue={(value: string) => handleInputChange('username', value)}
           />
           <FormInput
             name={'passwordLogin'}
             type="password"
+            value={user.password}
             placeholder={'Contraseña'}
             newValue={(value: string) => handleInputChange('password', value)}
           />
