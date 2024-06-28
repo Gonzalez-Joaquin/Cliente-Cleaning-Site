@@ -5,7 +5,7 @@ import RoutesModel from '../../Models/routes.models'
 import style from './searchBar.module.css'
 
 const SearchBar = () => {
-  const { searchValue, setSearchValue } = useDashboardContext()
+  const { searchValue, setSearchValue, pageActive } = useDashboardContext()
   const navigate = useNavigate()
 
   return (
@@ -26,9 +26,11 @@ const SearchBar = () => {
         )}
       </form>
       <div className={style.buttonsContainer}>
-        <button type="button" className={style.button} onClick={() => navigate(`/${RoutesModel.CREATE}`)}>
-          <i className="fi fi-br-plus" />
-        </button>
+        {pageActive === 'services' ? (
+          <button type="button" className={style.button} onClick={() => navigate(`/${RoutesModel.CREATE}`)}>
+            <i className="fi fi-br-plus" />
+          </button>
+        ) : null}
       </div>
     </div>
   )

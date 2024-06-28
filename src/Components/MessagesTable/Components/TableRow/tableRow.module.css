@@ -1,0 +1,84 @@
+.tableRow {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  padding-right: 4rem;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  max-height: 4rem;
+  box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 0px 1px;
+  transition: ease-out 0.2s;
+}
+
+.lastRow {
+  box-shadow: unset;
+}
+
+.tableRow:hover {
+  background-color: #fffbea;
+}
+
+.trash {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 5%;
+  height: 100%;
+  display: grid;
+  place-items: center;
+  background: transparent;
+  border: 0;
+  outline: 0;
+  cursor: pointer;
+}
+
+.trash > i {
+  line-height: 0;
+  padding: 0;
+  color: var(--color-primario);
+  transition: ease 0.2s;
+}
+
+.trash > i:hover {
+  color: var(--color-secundario);
+}
+
+.tableRow > td {
+  padding: 0.5rem 1rem;
+  text-transform: capitalize;
+  font: normal 500 18px/21px 'Poppins';
+  color: var(--texto-claro);
+}
+
+.id {
+  width: 5%;
+  height: 100%;
+  display: grid;
+  place-items: center;
+  border-right: 1px solid var(--borde-claro);
+}
+
+.name {
+  width: 20%;
+  color: var(--texto-principal) !important;
+  border-right: 1px solid var(--borde-claro);
+}
+
+.email {
+  width: 25%;
+  border-right: 1px solid var(--borde-claro);
+}
+
+.message {
+  border-right: 1px solid var(--borde-claro);
+  width: calc(45% + 4rem);
+}
+
+.name,
+.email,
+.message {
+  white-space: nowrap;
+  overflow-x: hidden;
+  text-overflow: ellipsis;
+}

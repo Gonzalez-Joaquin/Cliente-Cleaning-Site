@@ -1,5 +1,8 @@
+export { default as NavigationPads } from './NavigationPads/NavigationPads'
 export { default as ImageUploader } from './ImageUploader/ImageUploader'
 export { default as ServicesTable } from './ServicesTable/ServicesTable'
+export { default as MessagesTable } from './MessagesTable/MessagesTable'
+export { default as TableWizzard } from './TableWizzard/TableWizzard'
 export { default as FormInput } from './FormInput/FormInput'
 export { default as SearchBar } from './SearchBar/SearchBar'
 export { default as Button } from './Button/Button'

@@ -46,7 +46,6 @@ const Services = () => {
                     item={item}
                     key={item.id}
                     onClick={() => {
-                      console.log(item)
                       navigate(`/${RoutesModel.SERVICES}/${item.id}`)
                     }}
                   />

@@ -1,27 +1,34 @@
-import { DashboardContextProvider } from '../../Context/DashboardContext'
-import { SearchBar, ServicesTable } from '../../Components'
-
-import style from './dashboardPage.module.css'
-import { useAppDispatch, useAppSelector } from '../../Hooks/useRedux'
 import { useEffect } from 'react'
+
+import { NavigationPads, SearchBar, TableWizzard } from '../../Components'
+import { DashboardContextProvider } from '../../Context/DashboardContext'
+import { useAppDispatch, useAppSelector } from '../../Hooks/useRedux'
 import { getServices } from '../../Store/Thunks/service.thunks'
+import { getMessages } from '../../Store/Thunks/message.thunks'
+import style from './dashboardPage.module.css'
 
 const DashboardPage = () => {
   const { listOfServices } = useAppSelector(state => state.services)
+  const { listOfMessages } = useAppSelector(state => state.messages)
   const dispatch = useAppDispatch()
 
   useEffect(() => {
     if (!listOfServices || listOfServices?.length === 0) {
       dispatch(getServices())
-  }
+    }
+
+    if (!listOfMessages || listOfMessages?.length === 0) {
+      dispatch(getMessages())
+    }
   }, [])
 
   return (
     <DashboardContextProvider>
       <section className={style.section}>
         <article className={style.article}>
+          <NavigationPads />
           <SearchBar />
-          <ServicesTable />
+          <TableWizzard />
         </article>
       </section>
     </DashboardContextProvider>

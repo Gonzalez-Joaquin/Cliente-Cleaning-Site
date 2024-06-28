@@ -1,4 +1,4 @@
-import { doc, collection, setDoc, deleteDoc } from 'firebase/firestore'
+import { doc, collection, setDoc, deleteDoc, getDocs } from 'firebase/firestore'
 import { Dispatch } from '@reduxjs/toolkit'
 import { db } from '../../firebase'
 
@@ -6,9 +6,32 @@ import { IMessageData } from '../../Pages/HomePage/Layout/Contact/Contact'
 import {
   createMessage,
   deleteMessageRedux,
+  setMessages,
   startLoadingMessages,
   stopLoadingMessages,
 } from '../Reducers/contacts.reducer'
+
+const getMessages = () => {
+  return async function (dispatch: Dispatch) {
+    dispatch(startLoadingMessages())
+
+    const messages: IMessageData[] = []
+    const collectionRef = collection(db, 'messages')
+
+    try {
+      const snapshot = await getDocs(collectionRef)
+      snapshot.forEach(doc => {
+        const data = doc.data() as IMessageData
+        messages.push({ ...data, id: doc.id })
+      })
+      dispatch(setMessages(messages))
+    } catch (err: any) {
+      console.error('Fallo al traer los datos de Firebase.', err)
+    } finally {
+      dispatch(stopLoadingMessages())
+    }
+  }
+}
 
 const addMessage = (newMessage: IMessageData) => {
   return async function (dispatch: Dispatch) {
@@ -46,4 +69,4 @@ const deleteMessage = (id: string) => {
   }
 }
 
-export { addMessage, deleteMessage }
+export { addMessage, deleteMessage,getMessages }

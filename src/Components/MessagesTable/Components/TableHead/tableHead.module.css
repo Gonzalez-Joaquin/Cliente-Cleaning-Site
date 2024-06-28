@@ -1,0 +1,44 @@
+.tableHead {
+  width: 100%;
+  height: 100%;
+  max-height: 4rem;
+  display: flex;
+}
+
+.tableRow {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding-right: 4rem;
+}
+
+.tableRow > td {
+  padding: 0.5rem 1rem;
+  text-transform: uppercase;
+  font: normal 500 18px/21px 'Poppins';
+  color: var(--texto-principal);
+}
+
+.tableRow > td:nth-child(1) {
+  width: 5%;
+  height: 100%;
+  display: grid;
+  place-items: center;
+  border-right: 1px solid var(--borde-claro);
+}
+
+.tableRow > td:nth-child(2) {
+  border-right: 1px solid var(--borde-claro);
+  width: 20%;
+}
+
+.tableRow > td:nth-child(3) {
+  border-right: 1px solid var(--borde-claro);
+  width: 25%;
+}
+
+.tableRow > td:nth-last-child(1) {
+  width: calc(45% + 4rem);
+}

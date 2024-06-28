@@ -53,8 +53,6 @@ const GeneralInfoForm = () => {
     }
 
     if (portada.trim() === '') {
-      console.log(portada)
-
       showToast('El campo de portada no puede estar vacío.', 'error')
       return false
     }
