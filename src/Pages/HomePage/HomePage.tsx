@@ -9,7 +9,7 @@ const HomePage = () => {
 
   useEffect(() => {
     dispatch(getServices())
-  }, [])
+  }, [dispatch])
 
   return (
     <main className={style.main}>

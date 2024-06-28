@@ -8,7 +8,7 @@ interface DTOService {
 
 const initialState: DTOService = {
   loadingService: false,
-  listOfServices: [],
+  listOfServices: JSON.parse(sessionStorage.getItem('listOfServices') || '[]'),
 }
 
 const servicesSlice = createSlice({

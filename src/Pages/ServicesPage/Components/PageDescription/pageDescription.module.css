@@ -1,50 +1,106 @@
-.article {
-  padding-inline: 5%;
-  padding-block: 6rem;
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  justify-content: flex-start;
-  gap: 1rem;
+@media (max-width: 1025px) {
+  .article {
+    padding-inline: 2%;
+    padding-block: 2rem;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: 1rem;
+  }
+
+  .container {
+    padding-block: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  .title {
+    font-size: 2rem;
+    padding-left: 2%;
+    position: relative;
+    z-index: 10;
+    line-height: 2.2rem;
+  }
+
+  .description {
+    max-width: 100%;
+    font-size: 1.2rem;
+  }
+
+  .textContainer {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .textItem {
+    margin-bottom: 10px;
+  }
+
+  .textTitle {
+    font-size: 18px;
+    font-weight: bold;
+    color: #555;
+    margin-bottom: 5px;
+  }
+
+  .textContent {
+    font-size: 14px;
+    color: #777;
+  }
 }
 
-.container {
-  padding-block: 2rem;
-  display: flex;
-  gap: 5rem;
-}
+@media (min-width: 1025px) {
+  .article {
+    padding-inline: 5%;
+    padding-block: 6rem;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: 1rem;
+  }
 
-.title {
-  font-size: 3rem;
-  padding-left: 5%;
-  position: relative;
-  z-index: 10;
-  line-height: 3.2rem;
-}
+  .container {
+    padding-block: 2rem;
+    display: flex;
+    gap: 5rem;
+  }
 
-.description {
-  max-width: 70%;
-  font-size: 1.5rem;
-}
+  .title {
+    font-size: 3rem;
+    padding-left: 5%;
+    position: relative;
+    z-index: 10;
+    line-height: 3.2rem;
+  }
 
-.textContainer {
-  display: flex;
-  flex-direction: column;
-}
+  .description {
+    max-width: 70%;
+    font-size: 1.5rem;
+  }
 
-.textItem {
-  margin-bottom: 15px;
-}
+  .textContainer {
+    display: flex;
+    flex-direction: column;
+  }
 
-.textTitle {
-  font-size: 20px;
-  font-weight: bold;
-  color: #555;
-  margin-bottom: 5px;
-}
+  .textItem {
+    margin-bottom: 15px;
+  }
 
-.textContent {
-  font-size: 14px;
-  color: #777;
+  .textTitle {
+    font-size: 20px;
+    font-weight: bold;
+    color: #555;
+    margin-bottom: 5px;
+  }
+
+  .textContent {
+    font-size: 14px;
+    color: #777;
+  }
 }

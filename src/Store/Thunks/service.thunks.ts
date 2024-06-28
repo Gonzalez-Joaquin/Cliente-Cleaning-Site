@@ -9,6 +9,7 @@ import {
   updateService,
   deleteServiceRedux,
 } from '../Reducers/services.reducer'
+
 import { IServiceData } from '../../Data/services.data'
 import { db } from '../../firebase'
 
@@ -23,7 +24,7 @@ const getServices = () => {
       const snapshot = await getDocs(collectionRef)
       snapshot.forEach(doc => {
         const data = doc.data() as IServiceData
-        services.push({ ...data })
+        services.push({ ...data, id: doc.id }) // Incluye el id del documento
       })
       dispatch(setServices(services))
     } catch (err: any) {
@@ -91,10 +92,7 @@ const deleteService = (id: string) => {
 
     try {
       const serviceRef = doc(db, 'services', id.toString())
-      const response = await deleteDoc(serviceRef)
-      console.log('serviceRef', serviceRef)
-      console.log('response', response)
-
+      await deleteDoc(serviceRef)
       dispatch(deleteServiceRedux(id))
     } catch (err: any) {
       console.error('Fallo al eliminar el servicio en Firebase.', err)

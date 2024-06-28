@@ -1,10 +1,11 @@
 import { configureStore } from '@reduxjs/toolkit'
 
+import sessionStorageMiddleware from './Middlewares/sessionStorageMiddleware'
+import socialMediasReducer from './Reducers/socialMedias.reducer'
+import servicesReducer from './Reducers/services.reducer'
+import toolsReducer from './Reducers/tools.reducer'
 import userReducer from './Reducers/user.reducer'
 import jobsReducer from './Reducers/jobs.reducer'
-import toolsReducer from './Reducers/tools.reducer'
-import servicesReducer from './Reducers/services.reducer'
-import socialMediasReducer from './Reducers/socialMedias.reducer'
 
 const store = configureStore({
   reducer: {
@@ -14,6 +15,7 @@ const store = configureStore({
     social: socialMediasReducer,
     services: servicesReducer,
   },
+  middleware: getDefaultMiddleware => getDefaultMiddleware().concat(sessionStorageMiddleware),
 })
 
 export default store
