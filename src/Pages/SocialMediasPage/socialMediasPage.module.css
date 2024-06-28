@@ -14,34 +14,80 @@
   flex-direction: column;
   gap: 2rem;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   backdrop-filter: brightness(60%);
 }
 
-.articleSocialMedias h2 {
-  font-size: 2.5rem;
+.container {
+  margin-top: 2rem;
+  padding-inline: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.container h1 {
+  font-size: 3rem;
+  line-height: 3.2rem;
   color: var(--fondo-principal);
 }
 
+.container p {
+  color: var(--detalle);
+}
+
 .list {
-  width: 100%;
-  padding-inline: 20px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-  gap: 1.5rem;
   list-style: none;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding-inline: 5%;
 }
 
 .listButton {
   width: 100%;
-  display: ruby;
-}
-
-.listButton > a {
-  width: 100%;
   display: flex;
   align-items: center;
-  background: red;
+  justify-content: center;
+}
+
+.listButton a {
+  padding: 0.5rem 0.7rem;
+  width: 100%;
+  font-size: 1.5rem;
+  color: var(--fondo-principal);
+  text-decoration: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.5rem;
+  border-radius: 8px;
+  transition: ease 0.2s;
+  background: var(--color-primario);
+}
+
+.listButton a:hover {
+  color: var(--fondo-principal);
+}
+
+.listButton a i {
+  font-size: 2rem;
+  color: var(--fondo-principal);
+}
+
+@media (max-width: 768px) {
+  .articleSocialMedias h2 {
+    font-size: 2.5rem;
+  }
+
+  .listButton a {
+    font-size: 1.2rem;
+  }
+
+  .listButton a i {
+    font-size: 1.5rem;
+  }
 }

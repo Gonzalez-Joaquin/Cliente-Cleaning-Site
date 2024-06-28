@@ -7,14 +7,23 @@ const SocialMediasPage = () => {
   return (
     <section className={style.section}>
       <article className={style.articleSocialMedias}>
-        <h2>GB Cleaning Site</h2>
+        <div className={style.container}>
+          <h1>Limpieza De Tapizados</h1>
+          <p>
+            Renovamos y dejamos impecable todo tipo de tapizados, quitando manchas, acaros, olores y suciedad.
+            Eliminando hasta la última mancha y particula de polvo
+          </p>
+        </div>
         <ul className={style.list}>
           {ContactListData.map(item => (
             <li key={item.id} className={style.listButton}>
               {item.name ? (
-                <a>{item.name}</a>
+                <a href={item.link}>
+                  {item.name}
+                  <i className={`fi fi-brands-${item.icon}`} />
+                </a>
               ) : (
-                <a>
+                <a href={item.link}>
                   <i className={`fi fi-brands-${item.icon}`}></i>
                   {item.content}
                 </a>
