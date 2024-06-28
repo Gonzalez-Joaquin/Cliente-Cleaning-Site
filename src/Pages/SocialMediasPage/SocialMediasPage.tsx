@@ -1,8 +1,12 @@
+import { useNavigate } from 'react-router-dom'
+
 import { useAppSelector } from '../../Hooks/useRedux'
+import RoutesModel from '../../Models/routes.models'
 import style from './socialMediasPage.module.css'
 
 const SocialMediasPage = () => {
   const ContactListData = useAppSelector(state => state.social)
+  const navigate = useNavigate()
 
   return (
     <section className={style.section}>
@@ -30,6 +34,12 @@ const SocialMediasPage = () => {
               )}
             </li>
           ))}
+          <li key={ContactListData.length + 1} className={style.listButton}>
+            <a onClick={() => navigate(`/${RoutesModel.HOME}`)}>
+              Nuestra Página
+              <i className={'fi fi-br-globe'} />
+            </a>
+          </li>
         </ul>
       </article>
     </section>

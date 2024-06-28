@@ -6,7 +6,7 @@
   padding: 16px;
   border-radius: 4px;
   color: #fff;
-  z-index: 9999;
+  z-index: 999999;
   animation: fadeIn 0.5s, fadeOut 0.5s 2.5s;
   font-weight: 500;
   font-family: 'Poppins';

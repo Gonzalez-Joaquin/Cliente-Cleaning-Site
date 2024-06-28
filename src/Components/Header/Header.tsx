@@ -100,7 +100,7 @@ const Header = () => {
         />
       </div>
     </header>
-  ) : (
+  ) : !location.pathname.includes(RoutesModel.SOCIAL) ? (
     <header className={style.appHeader}>
       <button
         className={style.button}
@@ -127,12 +127,10 @@ const Header = () => {
               dispatch(resetUser())
             }}
           />
-        ) : (
-          ''
-        )}
+        ) : null}
       </div>
     </header>
-  )
+  ) : null
 }
 
 export default Header

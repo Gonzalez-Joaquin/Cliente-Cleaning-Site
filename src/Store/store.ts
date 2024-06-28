@@ -6,6 +6,7 @@ import servicesReducer from './Reducers/services.reducer'
 import toolsReducer from './Reducers/tools.reducer'
 import userReducer from './Reducers/user.reducer'
 import jobsReducer from './Reducers/jobs.reducer'
+import contactsReducer from './Reducers/contacts.reducer'
 
 const store = configureStore({
   reducer: {
@@ -14,6 +15,7 @@ const store = configureStore({
     tools: toolsReducer,
     social: socialMediasReducer,
     services: servicesReducer,
+    messages: contactsReducer
   },
   middleware: getDefaultMiddleware => getDefaultMiddleware().concat(sessionStorageMiddleware),
 })

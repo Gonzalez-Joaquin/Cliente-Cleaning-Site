@@ -4,10 +4,11 @@ interface Props {
   type?: 'text' | 'password' | 'email' | 'textarea'
   name: string
   placeholder: string
+  value: string
   newValue: (value: string) => void
 }
 
-const FormInput = ({ name, placeholder, type, newValue }: Props) => {
+const FormInput = ({ name, placeholder, value,type, newValue }: Props) => {
   return (
     <div className={`${styles.container} ${type === 'textarea' ? styles.textareaContainer : ''}`}>
       <label htmlFor={name} className={styles.label}>
@@ -17,6 +18,7 @@ const FormInput = ({ name, placeholder, type, newValue }: Props) => {
         <textarea
           id={name}
           name={name}
+          value={value}
           autoComplete="off"
           className={styles.textarea}
           onChange={e => newValue(e.target.value)}
@@ -26,6 +28,7 @@ const FormInput = ({ name, placeholder, type, newValue }: Props) => {
           type={type || 'text'}
           id={name}
           name={name}
+          value={value}
           autoComplete="off"
           className={styles.input}
           onChange={e => newValue(e.target.value)}

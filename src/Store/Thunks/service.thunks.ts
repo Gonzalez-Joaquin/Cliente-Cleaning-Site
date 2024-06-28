@@ -24,7 +24,7 @@ const getServices = () => {
       const snapshot = await getDocs(collectionRef)
       snapshot.forEach(doc => {
         const data = doc.data() as IServiceData
-        services.push({ ...data, id: doc.id }) // Incluye el id del documento
+        services.push({ ...data, id: doc.id })
       })
       dispatch(setServices(services))
     } catch (err: any) {

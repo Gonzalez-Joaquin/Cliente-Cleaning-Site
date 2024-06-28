@@ -1,12 +1,12 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 import { IServiceData } from '../../Data/services.data'
 
-interface DTOService {
+interface IServices {
   loadingService: boolean
   listOfServices: Array<IServiceData>
 }
 
-const initialState: DTOService = {
+const initialState: IServices = {
   loadingService: false,
   listOfServices: JSON.parse(sessionStorage.getItem('listOfServices') || '[]'),
 }

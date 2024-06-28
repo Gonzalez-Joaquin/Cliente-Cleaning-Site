@@ -1,12 +1,62 @@
+import { useEffect, useState } from 'react'
 import { Element } from 'react-scroll'
 
-import style from './contact.module.css'
+import { useAppDispatch, useAppSelector } from '../../../../Hooks/useRedux'
+import { addMessage } from '../../../../Store/Thunks/message.thunks'
 import { HomeModel } from '../../../../Models/routes.models'
+import { useToast } from '../../../../Context/ToastContext'
 import { Button, FormInput } from '../../../../Components'
-import { useAppSelector } from '../../../../Hooks/useRedux'
+import style from './contact.module.css'
+
+export interface IMessageData {
+  id: string
+  name: string
+  email: string
+  message: string
+}
 
 const Contact = () => {
+  const [validateForm, setValidateForm] = useState<boolean>(false)
   const ContactListData = useAppSelector(store => store.social)
+  const { showToast } = useToast()
+  const dispatch = useAppDispatch()
+
+  const [formData, setFormData] = useState<IMessageData>({
+    id: '',
+    name: '',
+    email: '',
+    message: '',
+  })
+
+  const handleInputChange = (name: string, value: string) => {
+    setFormData(prevState => ({
+      ...prevState,
+      [name]: value,
+    }))
+  }
+
+  const handleSubmitForm = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault()
+
+    dispatch(addMessage(formData))
+
+    showToast('El mensaje fue enviado con éxito', 'success')
+
+    setFormData({
+      id: '',
+      name: '',
+      email: '',
+      message: '',
+    })
+  }
+
+  useEffect(() => {
+    if (formData.email.includes('@') && formData.message.length >= 10) {
+      setValidateForm(true)
+    } else {
+      setValidateForm(false)
+    }
+  }, [formData])
 
   return (
     <Element className={style.element} name={HomeModel.CONTACT}>
@@ -36,15 +86,22 @@ const Contact = () => {
                 </ul>
               </div>
               <div className={style.form}>
-                <form onSubmit={e => e.preventDefault()}>
+                <form onSubmit={handleSubmitForm}>
                   <h4>Formulario de contacto</h4>
                   <div className={style.formField}>
-                    <FormInput type="text" name={'contactName'} placeholder={'Nombre'} newValue={e => console.log(e)} />
+                    <FormInput
+                      type="text"
+                      name={'contactName'}
+                      value={formData.name}
+                      placeholder={'Nombre'}
+                      newValue={e => handleInputChange('name', e)}
+                    />
                     <FormInput
                       type="email"
                       name={'contactEmail'}
+                      value={formData.email}
                       placeholder={'Email'}
-                      newValue={e => console.log(e)}
+                      newValue={e => handleInputChange('email', e)}
                     />
                   </div>
                   <div className={style.formTextArea}>
@@ -52,10 +109,11 @@ const Contact = () => {
                       type="textarea"
                       name={'contactMessage'}
                       placeholder={'Mensaje'}
-                      newValue={e => console.log(e)}
+                      value={formData.message}
+                      newValue={e => handleInputChange('message', e)}
                     />
                   </div>
-                  <Button value="Enviar" type="submit" icon="paper-plane" disabled />
+                  <Button value="Enviar" type="submit" icon="paper-plane" disabled={!validateForm} />
                 </form>
               </div>
             </div>

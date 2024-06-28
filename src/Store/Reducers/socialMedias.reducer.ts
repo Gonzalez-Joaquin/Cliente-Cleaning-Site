@@ -1,6 +1,6 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 
-export interface ContactData {
+export interface ISocialMedias {
   id: number
   content: string
   icon: string
@@ -8,7 +8,7 @@ export interface ContactData {
   link?: string
 }
 
-const initialState: Array<ContactData> = [
+const initialState: Array<ISocialMedias> = [
   {
     id: 0,
     name: 'Whatsapp',
@@ -41,10 +41,10 @@ const socialSlice = createSlice({
   name: 'social',
   initialState,
   reducers: {
-    createContact: (state, action: PayloadAction<ContactData>) => {
+    createContact: (state, action: PayloadAction<ISocialMedias>) => {
       state.push(action.payload)
     },
-    updateContact: (state, action: PayloadAction<ContactData>) => {
+    updateContact: (state, action: PayloadAction<ISocialMedias>) => {
       const index = state.findIndex(contact => contact.id === action.payload.id)
       if (index !== -1) {
         state[index] = action.payload
