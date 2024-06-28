@@ -14,6 +14,7 @@ const initialState: Array<ISocialMedias> = [
     name: 'Whatsapp',
     content: '+54 9 223 304-2204',
     icon: 'whatsapp',
+    link: 'https://wa.me/5492233042204',
   },
   {
     id: 2,
