@@ -81,7 +81,7 @@
 @media (min-width: 1025px) {
   .section {
     position: relative;
-    background-image: url('../../../../Assets/Examples/Alfombras/aspirandoAlfombraHumo.jpg');
+    background-image: url('../../../../Assets/Backgrounds/aspirandoAlfombraHumo.jpg');
     background-position: bottom;
     background-size: cover;
     background-repeat: no-repeat;

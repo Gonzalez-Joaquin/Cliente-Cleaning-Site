@@ -15,7 +15,8 @@ const CardServices = ({ item, onClick }: Props) => {
         </div>
         <div className={style.data}>
           <h4>{item.title}</h4>
-          <p>{item.desc}</p>
+          <p>{item.desc.length > 100 ? item.desc.slice(0, 100) + '...' : item.desc}</p>
+          <button className={style.button}>leer más</button>
         </div>
       </div>
     </div>

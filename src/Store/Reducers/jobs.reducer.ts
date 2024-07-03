@@ -1,8 +1,8 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 
-import aspirandoCama from '../../Assets/Examples/Sommiers/aspirandoCama.png'
-import alfombraLiquido from '../../Assets/Examples/Alfombras/alfombraLiquido.jpg'
-import aspirandoSillaVapor from '../../Assets/Examples/Silla/aspirandoSillaVapor.jpg'
+import aspirandoCama from '../../Assets/Backgrounds/aspirandoCama.png'
+import alfombraLiquido from '../../Assets/Backgrounds/alfombraLiquido.jpg'
+import aspirandoSillaVapor from '../../Assets/Backgrounds/aspirandoSillaVapor.jpg'
 
 interface JobsData {
   id: number

@@ -169,12 +169,10 @@
   .content h4 {
     color: var(--fondo-secundario);
     font-weight: 700;
-    font-size: 2.5rem;
   }
 
   .content p {
     color: var(--fondo-terciario);
     font-weight: 500;
-    font-size: 1.5rem;
   }
 }

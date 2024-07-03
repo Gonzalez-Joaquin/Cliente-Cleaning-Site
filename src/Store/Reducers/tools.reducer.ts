@@ -1,8 +1,8 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 
-import aspiradora1 from '../../Assets/Examples/Aspiradora/aspiradoraKaercher.jpg'
-import aspiradora2 from '../../Assets/Examples/Aspiradora/aspiradora2.jpg'
-import aspiradora3 from '../../Assets/Examples/Aspiradora/aspiradora3.jpg'
+import aspiradora1 from '../../Assets/Backgrounds/aspiradoraKaercher.jpg'
+import aspiradora2 from '../../Assets/Backgrounds/aspiradora2.jpg'
+import aspiradora3 from '../../Assets/Backgrounds/aspiradora3.jpg'
 
 interface IToolsData {
   id: number
