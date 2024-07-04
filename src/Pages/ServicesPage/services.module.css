@@ -1,6 +1,7 @@
 @media (max-width: 1051px) {
   .section {
     background: var(--fondo-principal);
+    
   }
 
   .article {
@@ -27,7 +28,7 @@
   .divisoryDiv {
     position: relative;
     width: 100%;
-    height: 40vh; /* Ajusta la altura según necesites */
+    height: 40vh;
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;

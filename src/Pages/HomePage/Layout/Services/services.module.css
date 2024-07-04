@@ -6,7 +6,7 @@
   position: relative;
   display: grid;
   place-items: center;
-  background-image: url('../../../../Assets/Examples/Alfombras/aspirandoAlfombraHumo.jpg');
+  background-image: url('../../../../Assets/Backgrounds/aspirandoAlfombraHumo.jpg');
   background-position: bottom;
   background-size: cover;
   background-repeat: no-repeat;
