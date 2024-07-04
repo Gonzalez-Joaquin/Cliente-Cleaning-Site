@@ -12,7 +12,13 @@ const SearchBar = () => {
     <div className={style.searchBar}>
       <form className={style.search} onSubmit={e => e.preventDefault()}>
         <i className={`fi fi-br-search ${style.lupe}`} />
-        <input value={searchValue} onChange={e => setSearchValue(e.target.value)} placeholder="Buscar..." />
+        <input
+          value={searchValue}
+          onChange={e => setSearchValue(e.target.value)}
+          name="buscador"
+          id="buscador"
+          placeholder="Buscar..."
+        />
         {searchValue.length > 0 ? (
           <i
             className={`fi fi-br-cross ${style.cross}`}
@@ -25,13 +31,12 @@ const SearchBar = () => {
           ''
         )}
       </form>
-      <div className={style.buttonsContainer}>
-        {pageActive === 'services' ? (
-          <button type="button" className={style.button} onClick={() => navigate(`/${RoutesModel.CREATE}`)}>
-            <i className="fi fi-br-plus" />
-          </button>
-        ) : null}
-      </div>
+      {pageActive === 'services' ? (
+        <button type="button" className={style.button} onClick={() => navigate(`/${RoutesModel.CREATE}`)}>
+          <span>Crear Servicio</span>
+          <i className="fi fi-br-plus" />
+        </button>
+      ) : null}
     </div>
   )
 }

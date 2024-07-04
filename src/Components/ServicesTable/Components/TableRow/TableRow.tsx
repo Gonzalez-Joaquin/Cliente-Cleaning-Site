@@ -7,6 +7,7 @@ import { useToast } from '../../../../Context/ToastContext'
 import RoutesModel from '../../../../Models/routes.models'
 import style from './tableRow.module.css'
 import { Toggle } from '../../..'
+import { useWindowSize } from '../../../../Hooks/useWindowSize'
 
 interface Props {
   idx: number
@@ -25,9 +26,16 @@ const TableRow = ({ idx, service, lastRow }: Props) => {
   const dispatch = useAppDispatch()
   const navigate = useNavigate()
   const { showToast } = useToast()
+  const [width] = useWindowSize()
 
   return (
-    <tr className={`${style.tableRow} ${lastRow ? style.lastRow : ''}`}>
+    <tr
+      className={`${style.tableRow} ${lastRow ? style.lastRow : ''}`}
+      onClick={() => {
+        if (width < 1025) {
+          navigate(`/${RoutesModel.CREATE}/${id}`)
+        }
+      }}>
       <td className={style.id}>{idx}</td>
       <td className={style.title}>{title}</td>
       <td className={style.icon}>
@@ -52,7 +60,12 @@ const TableRow = ({ idx, service, lastRow }: Props) => {
           }}
         />
       </td>
-      <td className={style.flecha} onClick={() => navigate(`/${RoutesModel.SERVICES}/${id}`)}>
+      <td
+        className={style.flecha}
+        onClick={e => {
+          e.stopPropagation()
+          navigate(`/${RoutesModel.SERVICES}/${id}`)
+        }}>
         <i className="fi fi-br-angle-right" />
       </td>
     </tr>
