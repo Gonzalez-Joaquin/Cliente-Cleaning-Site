@@ -1,3 +1,4 @@
+import { useWindowSize } from '../../../../../../Hooks/useWindowSize'
 import style from './priceTable.module.css'
 
 interface Props {
@@ -7,6 +8,8 @@ interface Props {
 }
 
 const PriceTable = ({ priceList, handleEdit, handleRemove }: Props) => {
+  const [width] = useWindowSize()
+
   return (
     <table className={style.table}>
       <thead className={style.tableHead}>
@@ -19,7 +22,14 @@ const PriceTable = ({ priceList, handleEdit, handleRemove }: Props) => {
       </thead>
       <tbody className={style.tableBody}>
         {priceList.map((price, index) => (
-          <tr key={index} className={style.tableRow}>
+          <tr
+            key={index}
+            className={style.tableRow}
+            onClick={() => {
+              if (width < 1025) {
+                handleEdit(index)
+              }
+            }}>
             <td className={style.id}>{index}</td>
             <td className={style.name}>{price.name}</td>
             <td className={style.price}>{price.price}</td>

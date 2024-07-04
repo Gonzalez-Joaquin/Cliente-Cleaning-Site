@@ -62,8 +62,30 @@ const InformationForm = () => {
     }
   }
 
+  useEffect(() => {
+    const sections = document.querySelectorAll('section')
+
+    sections.forEach(section => {
+      if (section.querySelector('.information-form')) {
+        section.classList.add('has-information-form')
+      } else {
+        section.classList.remove('has-information-form')
+      }
+    })
+
+    return () => {
+      sections.forEach(section => {
+        if (section.querySelector('.information-form')) {
+          section.classList.add('has-information-form')
+        } else {
+          section.classList.remove('has-information-form')
+        }
+      })
+    }
+  }, [])
+
   return (
-    <form className={style.form} onSubmit={handleSubmit}>
+    <form className={`${style.form} information-form`} onSubmit={handleSubmit}>
       <div className={style.header}>
         <h2>Información</h2>
         <button className={style.button} type="button" onClick={() => setIsOpen(true)}>

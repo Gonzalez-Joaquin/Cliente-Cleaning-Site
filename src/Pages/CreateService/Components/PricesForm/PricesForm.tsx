@@ -38,6 +38,7 @@ const PricesForm = () => {
   }
 
   const handleEdit = (index: number) => {
+    setIsOpen(!isOpen)
     setCurrentPrice(priceList[index])
     setEditIndex(index)
   }
@@ -56,8 +57,30 @@ const PricesForm = () => {
     }
   }
 
+  useEffect(() => {
+    const sections = document.querySelectorAll('section')
+
+    sections.forEach(section => {
+      if (section.querySelector('.prices-form')) {
+        section.classList.add('has-prices-form')
+      } else {
+        section.classList.remove('has-prices-form')
+      }
+    })
+
+    return () => {
+      sections.forEach(section => {
+        if (section.querySelector('.prices-form')) {
+          section.classList.add('has-prices-form')
+        } else {
+          section.classList.remove('has-prices-form')
+        }
+      })
+    }
+  }, [])
+
   return (
-    <form className={style.form} onSubmit={handleSubmit}>
+    <form className={`${style.form} prices-form`} onSubmit={handleSubmit}>
       <div className={style.header}>
         <h2>Precios</h2>
         <button className={style.button} type="button" onClick={() => setIsOpen(true)}>

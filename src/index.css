@@ -219,3 +219,13 @@ section {
     --enlace: #6c65ff;
   }
 }
+
+.has-information-form,
+.has-prices-form {
+  height: 100% !important;
+}
+
+.has-information-form > article,
+.has-prices-form > article {
+  height: 100%;
+}
