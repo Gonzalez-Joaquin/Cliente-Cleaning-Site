@@ -1,3 +1,4 @@
+import { OverflowTooltip } from '../../../../../../Components'
 import { useWindowSize } from '../../../../../../Hooks/useWindowSize'
 import style from './infoTable.module.css'
 
@@ -42,7 +43,9 @@ const InfoTable = ({ informationList, handleEdit, handleRemove }: Props) => {
               <img src={info.img} alt={info.title} />
             </td>
             <td className={style.title}>{info.title}</td>
-            <td className={style.text}>{info.text || 'Sin descripción asignada.'}</td>
+            <td className={style.text}>
+              <OverflowTooltip>{info.text || 'Sin descripción asignada.'}</OverflowTooltip>
+            </td>
             <td className={style.actions}>
               <i className={`fi fi-br-pencil ${style.edit}`} onClick={() => handleEdit(index)} />
               <i className={`fi fi-br-trash ${style.trash}`} onClick={() => handleRemove(index)} />

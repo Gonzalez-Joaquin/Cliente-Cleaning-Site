@@ -147,13 +147,6 @@
   .message {
     border-right: 1px solid var(--borde-claro);
     width: calc(45% + 4rem);
-  }
-
-  .name,
-  .email,
-  .message {
-    white-space: nowrap;
-    overflow-x: hidden;
-    text-overflow: ellipsis;
+    text-transform: unset !important;
   }
 }

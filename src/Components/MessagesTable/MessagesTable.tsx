@@ -1,6 +1,6 @@
 import style from './messageTable.module.css'
 
-import { TableBody, TableFooter, TableHead } from './Components'
+import { TableBody, TableHead } from './Components'
 
 const MessagesTable = () => {
   return (
@@ -8,7 +8,7 @@ const MessagesTable = () => {
       <table className={style.table}>
         <TableHead />
         <TableBody />
-        <TableFooter />
+        {/* <TableFooter /> */}
       </table>
     </div>
   )

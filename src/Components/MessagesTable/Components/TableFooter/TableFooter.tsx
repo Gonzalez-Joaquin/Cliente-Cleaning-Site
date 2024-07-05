@@ -1,5 +1,5 @@
 const TableFooter = () => {
-  return <div></div>
+  return <tfoot></tfoot>
 }
 
 export default TableFooter
