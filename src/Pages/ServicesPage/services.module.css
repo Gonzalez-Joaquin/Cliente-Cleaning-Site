@@ -1,14 +1,13 @@
 @media (max-width: 1051px) {
   .section {
     background: var(--fondo-principal);
-    
   }
 
   .article {
     padding-top: 3rem;
     padding-inline: 5%;
     width: 100%;
-    display: flex;k
+    display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;

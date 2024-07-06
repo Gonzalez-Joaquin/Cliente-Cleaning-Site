@@ -1,7 +1,10 @@
+import { useNavigate } from 'react-router-dom'
 import { useEffect, useState } from 'react'
+
 import RoutesModel, { HomeModel } from '../../../../Models/routes.models'
 import style from './pageHeader.module.css'
-import { useNavigate } from 'react-router-dom'
+
+import foto from '../../../../Assets/Backgrounds/alfombraLiquido.jpg'
 
 interface Props {
   title: string
@@ -28,7 +31,7 @@ const PageHeader = ({ title, icon }: Props) => {
   }, [title])
 
   return (
-    <div className={style.pageHeader}>
+    <div className={style.pageHeader} style={{ background: `url(${foto})` }}>
       <div>
         <h2 className={style.title}>{title}</h2>
         <div className={style.shape}>
