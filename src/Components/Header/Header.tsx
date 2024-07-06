@@ -100,7 +100,9 @@ const Header = () => {
         />
       </div>
     </header>
-  ) : !location.pathname.includes(RoutesModel.SOCIAL) ? (
+  ) : !location.pathname.includes(RoutesModel.SOCIAL) ||
+    !location.pathname.includes(RoutesModel.SOCIAL.toLocaleLowerCase()) ||
+    !location.pathname.includes(RoutesModel.SOCIAL.toLocaleUpperCase()) ? (
     <header className={style.appHeader}>
       <button
         className={style.button}
