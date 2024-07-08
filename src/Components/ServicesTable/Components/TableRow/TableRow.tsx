@@ -55,8 +55,7 @@ const TableRow = ({ idx, service, lastRow }: Props) => {
         <i
           className={`fi fi-br-trash ${style.trash}`}
           onClick={() => {
-            dispatch(deleteService(id))
-            showToast('El servicio fue eliminado con éxito.', 'success')
+            dispatch(deleteService(id, showToast))
           }}
         />
       </td>

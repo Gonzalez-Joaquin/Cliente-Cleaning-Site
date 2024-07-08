@@ -8,11 +8,13 @@ import { getServices } from '../../Store/Thunks/service.thunks'
 import { IServiceData } from '../../Data/services.data'
 import Loading from '../LoadingPage/LoadingPage'
 import style from './services.module.css'
+import { useToast } from '../../Context/ToastContext'
 
 const Services = () => {
   const dispatch = useAppDispatch()
   const { listOfServices } = useAppSelector(state => state.services)
   const [service, setService] = useState<IServiceData | null>(null)
+  const { showToast } = useToast()
   const { id } = useParams()
 
   useEffect(() => {
@@ -24,7 +26,7 @@ const Services = () => {
         const object = parsedServices.find(item => item.id === id)
         setService(object || parsedServices[0])
       } else {
-        dispatch(getServices()).then(() => {
+        dispatch(getServices(showToast)).then(() => {
           const newListOfServices =
             listOfServices.length > 0 ? listOfServices : JSON.parse(sessionStorage.getItem('services') || '[]')
           const object = newListOfServices.find((item: IServiceData) => item.id === id)

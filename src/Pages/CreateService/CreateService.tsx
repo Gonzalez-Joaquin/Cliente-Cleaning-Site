@@ -95,11 +95,9 @@ const CreateService = () => {
     setServiceData(updatedServiceData)
 
     if (isEditing) {
-      showToast('El servicio fue modificado con éxito!', 'success')
-      dispatch(editService(updatedServiceData))
+      dispatch(editService(updatedServiceData, showToast))
     } else {
-      showToast('El servicio fue creado con éxito!', 'success')
-      dispatch(addService(updatedServiceData))
+      dispatch(addService(updatedServiceData, showToast))
     }
     navigate(`/${RoutesModel.DASHBOARD}`)
   }

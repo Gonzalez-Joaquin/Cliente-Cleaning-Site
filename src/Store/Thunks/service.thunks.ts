@@ -2,18 +2,18 @@ import { collection, deleteDoc, doc, getDocs, setDoc, updateDoc } from 'firebase
 import { Dispatch } from 'redux'
 
 import {
-  startLoadingServices,
-  stopLoadingServices,
   setServices,
   createService,
   updateService,
   deleteServiceRedux,
+  stopLoadingServices,
+  startLoadingServices,
 } from '../Reducers/services.reducer'
 
 import { IServiceData } from '../../Data/services.data'
 import { db } from '../../firebase'
 
-const getServices = () => {
+const getServices = (showToast: (message: string, type: 'success' | 'error' | 'warning') => void) => {
   return async function (dispatch: Dispatch) {
     dispatch(startLoadingServices())
 
@@ -29,13 +29,17 @@ const getServices = () => {
       dispatch(setServices(services))
     } catch (err: any) {
       console.error('Fallo al traer los datos de Firebase.', err)
+      showToast('Fallo al traer los servicios, recargue la página para continuar.', 'error')
     } finally {
       dispatch(stopLoadingServices())
     }
   }
 }
 
-const addService = (newService: IServiceData) => {
+const addService = (
+  newService: IServiceData,
+  showToast: (message: string, type: 'success' | 'error' | 'warning') => void
+) => {
   return async function (dispatch: Dispatch) {
     dispatch(startLoadingServices())
     try {
@@ -47,15 +51,20 @@ const addService = (newService: IServiceData) => {
 
       await setDoc(serviceRef, serviceWithId)
       dispatch(createService(serviceWithId))
+      showToast('Servicio añadido exitosamente.', 'success')
     } catch (err: any) {
       console.error('Fallo al añadir el nuevo servicio a Firebase.', err)
+      showToast('Fallo al añadir el nuevo servicio, pruebe reitentandolo', 'error')
     } finally {
       dispatch(stopLoadingServices())
     }
   }
 }
 
-const editService = (updatedService: IServiceData) => {
+const editService = (
+  updatedService: IServiceData,
+  showToast: (message: string, type: 'success' | 'error' | 'warning') => void
+) => {
   return async function (dispatch: Dispatch) {
     dispatch(startLoadingServices())
 
@@ -78,15 +87,17 @@ const editService = (updatedService: IServiceData) => {
       const serviceRef = doc(db, 'services', updatedService.id.toString())
       await updateDoc(serviceRef, serviceDataForFirestore)
       dispatch(updateService(updatedService))
+      showToast('Servicio modificado exitosamente.', 'success')
     } catch (err: any) {
       console.error('Fallo al actualizar el servicio en Firebase.', err)
+      showToast('Fallo al modificar el servicio, pruebe volviendo a intentar.', 'error')
     } finally {
       dispatch(stopLoadingServices())
     }
   }
 }
 
-const deleteService = (id: string) => {
+const deleteService = (id: string, showToast: (message: string, type: 'success' | 'error' | 'warning') => void) => {
   return async function (dispatch: Dispatch) {
     dispatch(startLoadingServices())
 
@@ -94,8 +105,10 @@ const deleteService = (id: string) => {
       const serviceRef = doc(db, 'services', id.toString())
       await deleteDoc(serviceRef)
       dispatch(deleteServiceRedux(id))
+      showToast('Servicio eliminado exitosamente.', 'success')
     } catch (err: any) {
       console.error('Fallo al eliminar el servicio en Firebase.', err)
+      showToast('Fallo al eliminar el servicio, pruebe reitentandolo', 'error')
     } finally {
       dispatch(stopLoadingServices())
     }
