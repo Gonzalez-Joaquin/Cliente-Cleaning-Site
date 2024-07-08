@@ -16,7 +16,8 @@ const ImageUploader: React.FC<ImageUploaderProps> = ({ image, label, name, handl
   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0]
     if (file) {
-      if (file.size > 1048487) {
+      console.log(file)
+      if (file.size > 1000000) {
         showToast('La imagen es demasiado grande. Debe ser menor a 1MB.', 'error')
         return
       }

@@ -4,7 +4,7 @@ import ServicesTable from '../ServicesTable/ServicesTable'
 
 const TableWizzard = () => {
   const { pageActive } = useDashboardContext()
-
+  
   return pageActive === 'services' ? <ServicesTable /> : <MessagesTable />
 }
 
