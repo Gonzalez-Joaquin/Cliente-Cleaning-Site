@@ -1,10 +1,9 @@
 .container {
   margin-top: 1rem;
   padding-inline: 5px;
-  flex: 0 0 50%;
-  max-width: 50%;
+  flex: 0 0 calc(50% - 10px);
+  max-width: calc(50% - 10px);
   transition: ease 0.2s;
-  height: fit-content;
 }
 
 .container > div {
@@ -42,7 +41,6 @@
 }
 
 .data > h4 {
-  font-size: 20px;
   font-weight: 500;
   color: var(--fondo-principal);
   transition: ease 0.2s;
@@ -70,6 +68,8 @@
     flex: 0 0 33.33333%;
     max-width: 33.33333%;
     transition: ease 0.2s;
+    min-height: 15rem;
+    max-height: 20rem;
   }
 
   .container > div {
@@ -116,5 +116,17 @@
     color: var(--borde-claro);
     transition: ease 0.2s;
     display: unset;
+  }
+}
+
+@media (max-height: 680px) {
+  .container {
+    margin-top: unset !important;
+    height: fit-content;
+    margin: 10px 5px;
+  }
+
+  .container > div {
+    padding-block: 0.5rem;
   }
 }

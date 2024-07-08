@@ -14,7 +14,7 @@
 
 .article {
   padding-inline: 10%;
-  padding-top: 10rem;
+  padding-top: 4rem;
   width: 100%;
   height: 100%;
   background: #0020694e;
@@ -89,7 +89,6 @@
 
   .article {
     padding-inline: 10%;
-    padding-top: 10rem;
     width: 100%;
     height: 100%;
     background: #0020694e;
@@ -102,7 +101,7 @@
     height: 100%;
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: flex-start;
     justify-content: flex-start;
     gap: 2rem;
     transition: ease 0.3s;
@@ -150,5 +149,11 @@
 
   .pagination > span {
     color: var(--fondo-principal);
+  }
+}
+
+@media (max-height: 680px) {
+  .container {
+    height: fit-content;
   }
 }
