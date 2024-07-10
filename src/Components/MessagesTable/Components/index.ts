@@ -1,3 +1,4 @@
+export { default as MessagePopUp } from './MessagesPopUp/MessagesPopUp'
 export { default as TableFooter } from './TableFooter/TableFooter'
 export { default as TableHead } from './TableHead/TableHead'
 export { default as TableBody } from './TableBody/TableBody'

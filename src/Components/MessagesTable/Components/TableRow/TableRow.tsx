@@ -3,18 +3,27 @@ import { deleteMessage } from '../../../../Store/Thunks/message.thunks'
 import OverflowTooltip from '../../../OverflowTooltip/OverflowTooltip'
 import { useAppDispatch } from '../../../../Hooks/useRedux'
 import style from './tableRow.module.css'
+import { useWindowSize } from '../../../../Hooks/useWindowSize'
 
 interface Props {
   idx: number
   message: IMessageData
   lastRow: boolean
+  setMessageToRead: React.Dispatch<React.SetStateAction<IMessageData | null>>
 }
 
-const TableRow = ({ idx, message, lastRow }: Props) => {
+const TableRow = ({ idx, message, lastRow, setMessageToRead }: Props) => {
+  const [width] = useWindowSize()
   const dispatch = useAppDispatch()
 
   return (
-    <tr className={`${style.tableRow} ${lastRow ? style.lastRow : ''}`}>
+    <tr
+      className={`${style.tableRow} ${lastRow ? style.lastRow : ''}`}
+      onClick={() => {
+        if (width < 1025) {
+          setMessageToRead(message)
+        }
+      }}>
       <td className={style.id}>{idx}</td>
       <td className={style.name}>
         <OverflowTooltip>{message.name}</OverflowTooltip>
@@ -25,7 +34,12 @@ const TableRow = ({ idx, message, lastRow }: Props) => {
       <td className={style.message}>
         <OverflowTooltip>{message.message}</OverflowTooltip>
       </td>
-      <td className={style.trash} onClick={() => dispatch(deleteMessage(message.id))}>
+      <td
+        className={style.trash}
+        onClick={e => {
+          e.stopPropagation()
+          dispatch(deleteMessage(message.id))
+        }}>
         <i className="fi fi-br-trash" />
       </td>
     </tr>
