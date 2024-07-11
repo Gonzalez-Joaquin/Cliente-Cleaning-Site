@@ -1,9 +1,25 @@
-import { Button } from '../../../../Components'
-import { HomeModel } from '../../../../Models/routes.models'
-import style from './home.module.css'
 import { Element, scroller } from 'react-scroll'
+import { useEffect, useState } from 'react'
+
+import { useWindowSize } from '../../../../Hooks/useWindowSize'
+import { HomeModel } from '../../../../Models/routes.models'
+import { Button } from '../../../../Components'
+import style from './home.module.css'
+
+import picturebg from '../../../../Assets/Backgrounds/bg-primary.jpg'
 
 const Home = () => {
+  const [isMobile, setIsMobile] = useState<boolean>(false)
+  const [width] = useWindowSize()
+
+  useEffect(() => {
+    if (width < 1025) {
+      setIsMobile(true)
+    } else {
+      setIsMobile(false)
+    }
+  }, [width])
+
   const handleClick = (link: string) => {
     window.open(link, '_blank')
   }
@@ -11,11 +27,44 @@ const Home = () => {
   return (
     <Element className={style.element} name={HomeModel.HOME}>
       <section className={style.section}>
+        {isMobile ? (
+          <div
+            className={style.background}
+            style={{
+              backgroundImage: `url(${picturebg})`,
+              backgroundSize: 'cover',
+              backgroundPosition: 'center',
+              position: 'absolute',
+              top: 0,
+              left: 0,
+              width: '100%',
+              height: '100%',
+              zIndex: -1,
+            }}
+          />
+        ) : (
+          <video
+            className={style.background}
+            autoPlay
+            loop
+            muted
+            style={{
+              position: 'absolute',
+              top: 0,
+              left: 0,
+              width: '100%',
+              height: '100%',
+              objectFit: 'cover',
+              zIndex: 1,
+            }}>
+            <source src={'https://youtu.be/LabGEhywHU0'} type="video/mp4" />
+          </video>
+        )}
         <article className={style.article}>
           <h1>Limpieza De Tapizados</h1>
           <p>
-            Renovamos y dejamos impecable todo tipo de tapizados, quitando manchas, acaros, olores y suciedad.
-            Eliminando hasta la última mancha y particula de polvo
+            Renovamos y dejamos impecable todo tipo de tapizados, quitando manchas, ácaros, olores y suciedad.
+            Eliminando hasta la última mancha y partícula de polvo.
           </p>
           <Button
             value="Servicios"
@@ -42,9 +91,7 @@ const Home = () => {
               <i className="fi fi-brands-instagram"></i>
             </span>
           </li>
-          <li
-            className={style.icon}
-            onClick={() => handleClick('https://wa.me/5492233042204')}>
+          <li className={style.icon} onClick={() => handleClick('https://wa.me/5492233042204')}>
             <span className={style.tooltip}>Whatsapp</span>
             <span>
               <i className="fi fi-brands-whatsapp"></i>
