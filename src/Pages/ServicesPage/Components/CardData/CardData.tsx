@@ -11,7 +11,7 @@ const CardData = ({ img, title, text, left = false }: Props) => {
   return (
     <div className={`${style.container} ${left ? style.left : style.right}`}>
       <div className={style.image}>
-        <img src={img} />
+        <img src={img} loading="lazy" />
       </div>
       <div className={style.data}>
         <h3>{title}</h3>

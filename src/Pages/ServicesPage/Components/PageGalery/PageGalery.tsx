@@ -14,7 +14,7 @@ const PageGalery = ({ information }: Props) => {
       {information.map((item, index) => (
         <div key={index} className={styles.galleryItem}>
           <div>
-            <img src={item.img} alt={item.title} className={styles.image} />
+            <img src={item.img} alt={item.title} className={styles.image} loading="lazy" />
           </div>
           <div className={styles.overlay}>
             <h3 className={styles.title}>{item.title}</h3>
