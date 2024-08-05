@@ -4,10 +4,10 @@ import { Suspense, lazy } from 'react'
 
 import LoadingPage from './Pages/LoadingPage/LoadingPage'
 import { ToastProvider } from './Context/ToastContext'
+import HeaderSwitch from './Components/Header/Header'
 import RoutesModel from './Models/routes.models'
 import { RoutesWithNotFound } from './Utilities'
 import AuthGuard from './Guard/auth.guard'
-import { Header } from './Components'
 import store from './Store/store'
 
 // Lazy Loading
@@ -24,7 +24,7 @@ const App = () => {
       <Provider store={store}>
         <ToastProvider>
           <BrowserRouter>
-            <Header />
+            <HeaderSwitch />
             <RoutesWithNotFound>
               <Route path="/" element={<Navigate to={RoutesModel.DASHBOARD} />} />
               <Route path={RoutesModel.HOME} element={<HomePage />} />
