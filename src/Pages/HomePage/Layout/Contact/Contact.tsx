@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { memo, useEffect, useState } from 'react'
 import { Element } from 'react-scroll'
 
 import { useAppDispatch, useAppSelector } from '../../../../Hooks/useRedux'
@@ -125,4 +125,4 @@ const Contact = () => {
   )
 }
 
-export default Contact
+export default memo(Contact)

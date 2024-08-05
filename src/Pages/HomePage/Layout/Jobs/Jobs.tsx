@@ -1,8 +1,9 @@
+import { memo, useEffect, useState } from 'react'
 import { Element } from 'react-scroll'
+
 import { HomeModel } from '../../../../Models/routes.models'
-import style from './jobs.module.css'
 import { useAppSelector } from '../../../../Hooks/useRedux'
-import { useEffect, useState } from 'react'
+import style from './jobs.module.css'
 
 const Jobs = () => {
   const [currentIndex, setCurrentIndex] = useState<number>(0)
@@ -44,4 +45,4 @@ const Jobs = () => {
   )
 }
 
-export default Jobs
+export default memo(Jobs)

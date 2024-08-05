@@ -3,6 +3,7 @@ import { Element } from 'react-scroll'
 import { HomeModel } from '../../../../Models/routes.models'
 import style from './About.module.css'
 import { useAppSelector } from '../../../../Hooks/useRedux'
+import { memo } from 'react'
 
 const About = () => {
   const ListOfTools = useAppSelector(store => store.tools)
@@ -29,4 +30,4 @@ const About = () => {
   )
 }
 
-export default About
+export default memo(About)

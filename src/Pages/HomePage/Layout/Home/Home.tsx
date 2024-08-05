@@ -4,9 +4,9 @@ import { useState, useEffect, memo } from 'react'
 
 import picturebg from '../../../../Assets/Backgrounds/bg-primary.jpg'
 import { HomeModel } from '../../../../Models/routes.models'
+import Loading from '../../../LoadingPage/LoadingPage'
 import { Button } from '../../../../Components'
 import style from './home.module.css'
-import Loading from '../../../LoadingPage/LoadingPage'
 
 const Home = () => {
   const [loading, setLoading] = useState<boolean>(true)

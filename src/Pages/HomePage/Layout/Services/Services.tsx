@@ -1,6 +1,6 @@
 import { useNavigate } from 'react-router-dom'
 import { Element } from 'react-scroll'
-import { useState } from 'react'
+import { memo, useState } from 'react'
 
 import RoutesModel, { HomeModel } from '../../../../Models/routes.models'
 import { useAppSelector } from '../../../../Hooks/useRedux'
@@ -66,4 +66,4 @@ const Services = () => {
   )
 }
 
-export default Services
+export default memo(Services)
