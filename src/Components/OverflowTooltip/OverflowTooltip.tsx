@@ -21,6 +21,7 @@ const OverflowTooltip = ({ children }: OverflowTooltipProps) => {
 
     setTimeout(checkOverflow, 0)
 
+    // TODO cambiar
     window.addEventListener('resize', checkOverflow)
 
     return () => {

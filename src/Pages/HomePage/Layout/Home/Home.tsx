@@ -1,33 +1,47 @@
+import { getStorage, ref, getDownloadURL } from 'firebase/storage'
 import { Element, scroller } from 'react-scroll'
-import { useEffect, useState } from 'react'
+import { useState, useEffect, memo } from 'react'
 
-import { useWindowSize } from '../../../../Hooks/useWindowSize'
+import picturebg from '../../../../Assets/Backgrounds/bg-primary.jpg'
 import { HomeModel } from '../../../../Models/routes.models'
 import { Button } from '../../../../Components'
 import style from './home.module.css'
-
-import picturebg from '../../../../Assets/Backgrounds/bg-primary.jpg'
+import Loading from '../../../LoadingPage/LoadingPage'
 
 const Home = () => {
-  const [isMobile, setIsMobile] = useState<boolean>(false)
-  const [width] = useWindowSize()
+  const [loading, setLoading] = useState<boolean>(true)
+  const [videoUrl, setVideoUrl] = useState<string>('')
 
   useEffect(() => {
-    if (width < 1025) {
-      setIsMobile(true)
-    } else {
-      setIsMobile(false)
-    }
-  }, [width])
+    const storage = getStorage()
+    const videoRef = ref(
+      storage,
+      'gs://gblimpiezadetapizados.appspot.com/close-up-of-vacuum-cleaner-cleaning-leather-sofa-2024-03-28-01-08-37-utc.mov'
+    )
+    getDownloadURL(videoRef)
+      .then(url => setVideoUrl(url))
+      .catch(error => console.error('Error getting video URL: ', error))
+      .finally(() => {
+        setTimeout(() => {
+          setLoading(false)
+        }, 300)
+      })
+  }, [])
 
   const handleClick = (link: string) => {
     window.open(link, '_blank')
   }
 
-  return (
+  return loading ? (
+    <Loading />
+  ) : (
     <Element className={style.element} name={HomeModel.HOME}>
       <section className={style.section}>
-        {isMobile ? (
+        {videoUrl ? (
+          <video className={style.background} autoPlay loop muted>
+            <source src={videoUrl} type="video/mp4" />
+          </video>
+        ) : (
           <div
             className={style.background}
             style={{
@@ -42,23 +56,6 @@ const Home = () => {
               zIndex: -1,
             }}
           />
-        ) : (
-          <video
-            className={style.background}
-            autoPlay
-            loop
-            muted
-            style={{
-              position: 'absolute',
-              top: 0,
-              left: 0,
-              width: '100%',
-              height: '100%',
-              objectFit: 'cover',
-              zIndex: 1,
-            }}>
-            <source src={'https://youtu.be/LabGEhywHU0'} type="video/mp4" />
-          </video>
         )}
         <article className={style.article}>
           <h1>Limpieza De Tapizados</h1>
@@ -103,4 +100,4 @@ const Home = () => {
   )
 }
 
-export default Home
+export default memo(Home)
