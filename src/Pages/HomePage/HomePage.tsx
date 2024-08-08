@@ -1,10 +1,14 @@
-import { useEffect } from 'react'
-
-import { Home, Services, Jobs, About, Contact } from './Layout'
+import React, { Suspense, useEffect } from 'react'
 import { getServices } from '../../Store/Thunks/service.thunks'
 import { useToast } from '../../Context/ToastContext'
 import { useAppDispatch } from '../../Hooks/useRedux'
 import style from './homePage.module.css'
+
+const Home = React.lazy(() => import('./Layout/Home/Home'))
+const Services = React.lazy(() => import('./Layout/Services/Services'))
+const Jobs = React.lazy(() => import('./Layout/Jobs/Jobs'))
+const About = React.lazy(() => import('./Layout/About/About'))
+const Contact = React.lazy(() => import('./Layout/Contact/Contact'))
 
 const HomePage = () => {
   const dispatch = useAppDispatch()
@@ -16,11 +20,13 @@ const HomePage = () => {
 
   return (
     <main className={style.main}>
-      <Home />
-      <Jobs />
-      <Services />
-      <About />
-      <Contact />
+      <Suspense fallback={<div>Loading...</div>}>
+        <Home />
+        <Jobs />
+        <Services />
+        <About />
+        <Contact />
+      </Suspense>
     </main>
   )
 }
