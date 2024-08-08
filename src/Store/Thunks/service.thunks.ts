@@ -68,6 +68,8 @@ const editService = (
   return async function (dispatch: Dispatch) {
     dispatch(startLoadingServices())
 
+    console.log(updatedService)
+
     try {
       const serviceDataForFirestore = {
         title: updatedService.title,

@@ -2,7 +2,7 @@
 
 .element {
   height: 130%;
-  background: #1e1e1e;
+  background: #121212;
 }
 
 .article {
@@ -54,12 +54,15 @@
 .content > h4 {
   font-size: 1.375rem;
   line-height: normal;
-  color: var(--fondo-principal);
+  font-weight: bold;
+  /* color: var(--fondo-principal); */
+  color: #121212;
 }
 
 .content > p {
   font-size: 1rem;
-  color: var(--fondo-terciario);
+  font-weight: 500;
+  /* color: var(--fondo-terciario); */
 }
 
 .active {

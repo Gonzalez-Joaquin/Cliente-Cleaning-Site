@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react'
 import { PageDescription, PageGalery, PageHeader, Prices } from './Components'
 import { useAppSelector, useAppDispatch } from '../../Hooks/useRedux'
 import { setServices } from '../../Store/Reducers/services.reducer'
-import { getServices } from '../../Store/Thunks/service.thunks'
+import { editService, getServices } from '../../Store/Thunks/service.thunks'
 import { IServiceData } from '../../Data/services.data'
 import Loading from '../LoadingPage/LoadingPage'
 import style from './services.module.css'
@@ -47,13 +47,17 @@ const Services = () => {
     return <Loading />
   }
 
+  const onEditPrice = (newPrices: Array<{ name: string; price: number }>) => {
+    dispatch(editService({ ...service, prices: newPrices }, showToast))
+  }
+
   return (
     <section className={style.section}>
       <PageHeader title={service.title} icon={service.icon} />
       <PageDescription page={service.page} />
       <PageGalery information={service.information} />
       <div className={style.divisoryDiv} style={{ backgroundImage: `url(${service.portada})` }}></div>
-      <Prices prices={service.prices} title={'Precios'} />
+      <Prices prices={service.prices} title={'Precios'} onEditPrice={onEditPrice} />
     </section>
   )
 }

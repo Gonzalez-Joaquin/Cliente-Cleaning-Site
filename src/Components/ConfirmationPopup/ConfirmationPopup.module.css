@@ -1,0 +1,82 @@
+.bgPopUp {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: grid;
+  background: rgba(0, 0, 0, 0.3);
+  place-items: center;
+  opacity: 0;
+  visibility: hidden;
+  z-index: -1;
+  transition: ease 0.3s;
+}
+
+.bgPopUp.false {
+  opacity: 0;
+  visibility: hidden;
+  z-index: -1;
+}
+
+.bgPopUp.true {
+  opacity: 1;
+  visibility: visible;
+  z-index: 20;
+}
+
+.popUp {
+  max-width: 30rem;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  background: var(--fondo-principal);
+  opacity: 0;
+  transform: translateY(10%);
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.bgPopUp.true > .popUp {
+  transform: translateY(0%);
+  opacity: 1;
+}
+
+.popupBody {
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.popupBody > h2 {
+  text-align: center;
+  font-size: 1.5rem !important;
+  margin-bottom: 1rem;
+}
+
+.popupBody > p {
+  font-size: 1rem;
+  text-align: center;
+}
+
+.popupFooter {
+  display: flex;
+  justify-content: center;
+  padding: 1rem;
+  width: 100%;
+  gap: 1rem;
+}
+
+.popupFooter > button {
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+.popupFooter > button:first-child {
+  color: var(--error);
+}
+
+.popupFooter > button:hover {
+  background-color: var(--hover);
+}

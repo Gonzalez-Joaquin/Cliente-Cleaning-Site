@@ -1,3 +1,4 @@
+export { default as ConfirmationPopUp } from './ConfirmationPopup/ConfirmationPopup'
 export { default as OverflowTooltip } from './OverflowTooltip/OverflowTooltip'
 export { default as NavigationPads } from './NavigationPads/NavigationPads'
 export { default as ImageUploader } from './ImageUploader/ImageUploader'
