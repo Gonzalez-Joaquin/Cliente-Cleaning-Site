@@ -1,16 +1,24 @@
-import { getStorage, ref, getDownloadURL } from 'firebase/storage'
-import { Element, scroller } from 'react-scroll'
+import { getStorage, ref, getDownloadURL, uploadBytesResumable, deleteObject } from 'firebase/storage'
+import { getFirestore, setDoc, doc } from 'firebase/firestore'
 import { useState, useEffect, memo } from 'react'
+import { Element, scroller } from 'react-scroll'
 
 import picturebg from '../../../../Assets/Backgrounds/bg-primary.jpg'
 import { HomeModel } from '../../../../Models/routes.models'
+import { useAppSelector } from '../../../../Hooks/useRedux'
+import { useToast } from '../../../../Context/ToastContext'
 import Loading from '../../../LoadingPage/LoadingPage'
 import { Button } from '../../../../Components'
+import ChangeBg from './Components/ChangeBg'
 import style from './home.module.css'
 
 const Home = () => {
+  const user = useAppSelector(state => state.user.name)
   const [loading, setLoading] = useState<boolean>(true)
+  const [isOpen, setIsOpen] = useState<boolean>(false)
   const [videoUrl, setVideoUrl] = useState<string>('')
+  const [oldVideoUrl, setOldVideoUrl] = useState<string>('')
+  const { showToast } = useToast()
 
   useEffect(() => {
     const storage = getStorage()
@@ -32,11 +40,79 @@ const Home = () => {
     window.open(link, '_blank')
   }
 
+  useEffect(() => {
+    if (isOpen) {
+      document.body.style.overflow = 'hidden'
+      setOldVideoUrl(videoUrl)
+    } else {
+      document.body.style.overflow = ''
+    }
+
+    return () => {
+      document.body.style.overflow = ''
+    }
+  }, [isOpen])
+
+  const handleBackgroundChange = async (file: File) => {
+    const storage = getStorage()
+    const db = getFirestore()
+
+    try {
+      if (videoUrl) {
+        const oldBackgroundRef = ref(storage, videoUrl)
+        await deleteObject(oldBackgroundRef)
+        console.log('Old background deleted')
+      }
+
+      const storageRef = ref(storage, `backgrounds/${file.name}`)
+      const uploadTask = uploadBytesResumable(storageRef, file)
+
+      uploadTask.on(
+        'state_changed',
+        snapshot => {
+          const progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100
+          console.log(`Upload is ${progress}% done`)
+        },
+        error => {
+          throw error
+        },
+        async () => {
+          const downloadURL = await getDownloadURL(uploadTask.snapshot.ref)
+          await setDoc(doc(db, 'settings', 'background'), {
+            url: downloadURL,
+            type: file.type.startsWith('video') ? 'video' : 'image',
+          })
+          setVideoUrl(downloadURL)
+          showToast('Fondo actualizado correctamente', 'success')
+        }
+      )
+    } catch (error) {
+      console.error('Error updating background:', error)
+      setVideoUrl(oldVideoUrl)
+      showToast('Error al actualizar el fondo. Se restauró el fondo anterior.', 'error')
+    }
+  }
+
+  const handleConfirm = (newFile: File) => {
+    handleBackgroundChange(newFile)
+    setIsOpen(false)
+  }
+
+  const handleCancel = () => {
+    setVideoUrl(oldVideoUrl)
+    setIsOpen(false)
+  }
+
   return loading ? (
     <Loading />
   ) : (
     <Element className={style.element} name={HomeModel.HOME}>
       <section className={style.section}>
+        {user !== '' ? (
+          <div className={style.editContainer} onClick={() => setIsOpen(!isOpen)}>
+            <Button icon="pencil" />
+          </div>
+        ) : null}
         {videoUrl ? (
           <video className={style.background} autoPlay loop muted>
             <source src={videoUrl} type="video/mp4" />
@@ -96,6 +172,7 @@ const Home = () => {
           </li>
         </ul>
       </section>
+      <ChangeBg isOpen={isOpen} setIsOpen={setIsOpen} onConfirm={handleConfirm} onCancel={handleCancel} />
     </Element>
   )
 }

@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import { Button } from '../../../../../Components'
 import { useAppSelector } from '../../../../../Hooks/useRedux'
 import { useWindowSize } from '../../../../../Hooks/useWindowSize'
@@ -13,26 +14,30 @@ interface Props {
   handleDelete: (param: number) => void
 }
 
+// Agregamos una nueva propiedad `showActions` para manejar el despliegue de acciones
 const PriceTableRow = ({ item, handleEdit, handleDelete }: Props) => {
-  const [width] = useWindowSize()
   const name = useAppSelector(state => state.user.name)
+  const [showActions, setShowActions] = useState(false)
+  const [width] = useWindowSize()
+
+  const toggleActions = () => {
+    setShowActions(!showActions)
+  }
 
   return (
     <tr
       className={style.row}
       onClick={() => {
         if (width < 1025) {
-          handleEdit(item.id)
+          toggleActions()
         }
       }}>
       <td className={style.name}>{item.name}</td>
       <td className={style.price}>${item.price}</td>
-      {width > 1025 && name !== '' ? (
-        <td className={style.actions}>
-          <div>
-            <Button icon="trash" iconClassName={style.red} styles="default" onClick={() => handleDelete(item.id)} />
-            <Button icon="pencil" styles="default" onClick={() => handleEdit(item.id)} />
-          </div>
+      {name !== '' ? (
+        <td className={`${style.actions} ${width < 1025 && showActions ? style.view : ''}`}>
+          <Button icon="trash" iconClassName={style.red} styles="default" onClick={() => handleDelete(item.id)} />
+          <Button icon="pencil" styles="default" onClick={() => handleEdit(item.id)} />
         </td>
       ) : null}
     </tr>
