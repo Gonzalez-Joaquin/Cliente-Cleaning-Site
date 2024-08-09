@@ -111,6 +111,17 @@
   z-index: 1;
 }
 
+.editContainer {
+  right: 2rem;
+  bottom: 2rem;
+  position: absolute;
+  z-index: 10;
+}
+
+.editContainer > button {
+  padding: 0.5rem 0.5rem;
+}
+
 @media (min-width: 1025px) {
   .section {
     background-position: center;
